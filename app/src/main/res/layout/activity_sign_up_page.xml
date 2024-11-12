@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signUpPage"
+    android:background="@color/black">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sighn_bg"
+        android:scaleType="centerCrop" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="85dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:src="@drawable/image1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ImageView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/nameInput"
+                    android:layout_width="321dp"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="11dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="11dp"
+                    android:drawableLeft="@drawable/person_icon"
+                    android:textColor="#FFFFFF"
+                    android:drawablePadding="10dp"
+                    android:textColorHint="#FFFFFF"/>
+
+                <EditText
+                    android:id="@+id/emailInput"
+                    android:layout_width="321dp"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="11dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="11dp"
+                    android:drawableLeft="@drawable/mail_icon"
+                    android:drawablePadding="10dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"/>
+
+                <EditText
+                    android:id="@+id/passwordInput"
+                    android:layout_width="321dp"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="11dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="11dp"
+                    android:drawableLeft="@drawable/lock_icon"
+                    android:drawablePadding="10dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"/>
+
+                <EditText
+                    android:id="@+id/confirmPasswordInput"
+                    android:layout_width="321dp"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="11dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="11dp"
+                    android:drawableLeft="@drawable/lock_icon"
+                    android:drawablePadding="10dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="321dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_background"
+                android:paddingStart="16dp"
+                android:paddingTop="11dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="11dp"
+                android:text="Create Account"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="25dp"
+                android:layout_margin="10dp">
+
+                <View
+                    android:layout_width="136.41dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Or"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginHorizontal="12dp"/>
+
+                <View
+                    android:layout_width="136.41dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"/>
+
+            </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="321dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_margin="11dp"
+
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+
+            app:cardBackgroundColor="@android:color/transparent"> <!-- Transparent background for the CardView -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center"
+            android:background="@drawable/card_border"> <!-- Apply border with drawable -->
+
+            <!-- Google icon on the left -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/devicon_google"
+                android:contentDescription="Google Icon"
+                android:layout_marginEnd="8dp" />
+            <!-- Text for the button -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:text="Continue with Google"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:lineHeight="21dp"
+                android:fontFamily="sans-serif-medium" />
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout >
