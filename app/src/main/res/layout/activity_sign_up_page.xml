@@ -15,13 +15,13 @@
         android:scaleType="centerCrop" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foregroundGravity="center"
+        android:gravity="center"
         android:paddingLeft="45dp"
         android:paddingRight="45dp"
-        android:paddingTop="30dp"
+
         >
 
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingTop="10dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="31dp"
+
                 android:src="@drawable/image1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +50,38 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+
                 android:layout_marginBottom="15dp"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+
+                    android:paddingBottom="16dp"
+
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Up"
+                        android:textSize="24sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Use proper information to continue"
+                        android:textSize="16sp"
+                        android:textColor="#FFFFFF"
+                        />
+
+
+
+
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/nameInput"
@@ -103,39 +132,39 @@
                     android:drawableLeft="@drawable/lock_icon"
                     android:drawablePadding="10dp"
                     android:textColorHint="#FFFFFF"
-                    android:textColor="#FFFFFF"/>
-
-                <EditText
-                    android:id="@+id/confirmPasswordInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/edittext_background"
-                    android:hint="Confirm Password"
-                    android:inputType="textPassword"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="11dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="11dp"
-                    android:drawableLeft="@drawable/lock_icon"
-                    android:drawablePadding="10dp"
-                    android:textColorHint="#FFFFFF"
                     android:textColor="#FFFFFF"
-                    />
+
+
+
+
+                />
+
             </LinearLayout>
 
             <Button
+                android:id="@+id/CreatAccountButton"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_background"
-                android:paddingStart="16dp"
-                android:paddingTop="11dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="11dp"
+
+
+
                 android:text="Create Account"
                 android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="By signing up, you agree to our Terms &amp; Conditions and Privacy Policy"
+                android:textColor="#FFFFFF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -151,8 +180,8 @@
                     android:layout_height="1dp"
                     android:layout_weight="4.5"
                     android:layout_gravity="center"
-
                     android:background="@color/white"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -160,24 +189,23 @@
                     android:layout_weight="0.3"
                     android:textSize="17sp"
                     android:paddingLeft="5dp"
-                    android:textColor="@color/white"
-                    />
+                    android:textColor="@color/white" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="4.5"
                     android:layout_gravity="center"
-
                     android:background="@color/white"/>
 
             </LinearLayout>
 
-        <androidx.cardview.widget.CardView
+
+            <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_gravity="center"
-            android:layout_margin="11dp"
+
 
             app:cardCornerRadius="10dp"
             app:cardElevation="4dp"
@@ -209,7 +237,7 @@
                 android:layout_height="21dp"
                 android:text="Continue with Google"
                 android:textColor="#ffffff"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:lineHeight="21dp"
                 android:fontFamily="sans-serif-medium" />
 
@@ -217,12 +245,36 @@
         </androidx.cardview.widget.CardView>
 
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 
+    android:gravity="center"
+    android:paddingTop="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="   Sign in"
+        android:textColor="#BBACF2"
+        android:textSize="16sp"
+        android:clickable="true"
+        />
+
+
+</LinearLayout>
 
 
 
         </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout >
