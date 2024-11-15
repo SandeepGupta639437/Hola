@@ -52,4 +52,10 @@ dependencies {
 
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation( "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+
+    //ssp dsp
+
+
+    implementation ("com.intuit.ssp:ssp-android:1.0.6")
+    implementation ("com.intuit.sdp:sdp-android:1.0.6")
 }

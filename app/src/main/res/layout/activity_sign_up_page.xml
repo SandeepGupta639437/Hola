@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingLeft="45dp"
-        android:paddingRight="45dp"
+        android:paddingLeft="@dimen/_40ssp"
+        android:paddingRight="@dimen/_40sdp"
 
         >
 
@@ -51,7 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginBottom="15dp"
+
+                android:layout_marginBottom="@dimen/_24sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -60,22 +61,24 @@
                     android:orientation="vertical"
                     android:gravity="center"
 
-                    android:paddingBottom="16dp"
+                    android:paddingBottom="@dimen/_13sdp"
 
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sign Up"
-                        android:textSize="24sp"
+                        android:textSize="@dimen/_20ssp"
                         android:textColor="#FFFFFF"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:textAlignment="center"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Use proper information to continue"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13ssp"
                         android:textColor="#FFFFFF"
+                        android:textAlignment="center"
                         />
 
 
@@ -86,51 +89,61 @@
                 <EditText
                     android:id="@+id/nameInput"
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+
+                    android:layout_gravity="center"
+
                     android:background="@drawable/edittext_background"
                     android:hint="Full Name"
                     android:inputType="textPersonName"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="11dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="11dp"
+                    android:paddingLeft="@dimen/_16sdp"
+
+                    android:paddingRight="@dimen/_16sdp"
+
                     android:drawableLeft="@drawable/person_icon"
                     android:textColor="#FFFFFF"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="@dimen/_8sdp"
                     android:textColorHint="#FFFFFF"/>
 
                 <EditText
                     android:id="@+id/emailInput"
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="@dimen/_38sdp"
+
+                    android:layout_gravity="center"
+
+
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:background="@drawable/edittext_background"
                     android:hint="Email Address"
                     android:inputType="textEmailAddress"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="11dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="11dp"
+                    android:paddingLeft="@dimen/_16sdp"
+
+                    android:paddingRight="@dimen/_16sdp"
+
                     android:drawableLeft="@drawable/mail_icon"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="@dimen/_8sdp"
                     android:textColorHint="#FFFFFF"
                     android:textColor="#FFFFFF"/>
 
                 <EditText
                     android:id="@+id/passwordInput"
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="@dimen/_38sdp"
+
+                    android:layout_gravity="center"
+
+
                     android:background="@drawable/edittext_background"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="11dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="11dp"
+                    android:paddingLeft="@dimen/_16sdp"
+
+                    android:paddingRight="@dimen/_16sdp"
+
                     android:drawableLeft="@drawable/lock_icon"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="@dimen/_8sdp"
                     android:textColorHint="#FFFFFF"
                     android:textColor="#FFFFFF"
 
@@ -139,13 +152,32 @@
 
                 />
 
+
+
+                <ProgressBar
+                    android:id="@+id/passwordStrengthBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"
+                    android:max="100"
+                    style="?android:attr/progressBarStyleHorizontal" />
+
+                <TextView
+                    android:id="@+id/passwordStrengthLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#FFFFFF"
+                    android:visibility="gone" />
+
             </LinearLayout>
 
             <Button
                 android:id="@+id/CreatAccountButton"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="@dimen/_40sdp"
+
                 android:background="@drawable/button_background"
 
 
@@ -154,15 +186,16 @@
                 android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="20sp" />
+                android:textSize="@dimen/_16ssp" />
 
             <TextView
                 android:id="@+id/tv_agreement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textSize="@dimen/_10ssp"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_11sdp"
                 android:text="By signing up, you agree to our Terms &amp; Conditions and Privacy Policy"
                 android:textColor="#FFFFFF" />
 
@@ -171,8 +204,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_margin="10dp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="10">
 
                 <View
@@ -187,13 +220,13 @@
                     android:layout_height="wrap_content"
                     android:text="Or"
                     android:layout_weight="0.3"
-                    android:textSize="17sp"
-                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/_16ssp"
+                    android:paddingLeft="@dimen/_8sdp"
                     android:textColor="@color/white" />
 
                 <View
                     android:layout_width="0dp"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:layout_weight="4.5"
                     android:layout_gravity="center"
                     android:background="@color/white"/>
@@ -203,12 +236,12 @@
 
             <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center"
 
 
-            app:cardCornerRadius="10dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_4sdp"
 
             app:cardBackgroundColor="@android:color/transparent"> <!-- Transparent background for the CardView -->
 
@@ -217,8 +250,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingTop="11dp"
-            android:paddingBottom="11dp"
+            android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:gravity="center"
@@ -234,11 +266,12 @@
             <!-- Text for the button -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="21dp"
+                android:layout_height="wrap_content"
                 android:text="Continue with Google"
                 android:textColor="#ffffff"
-                android:textSize="16sp"
-                android:lineHeight="21dp"
+                android:textSize="@dimen/_13ssp"
+
+
                 android:fontFamily="sans-serif-medium" />
 
         </LinearLayout>
@@ -250,21 +283,21 @@
     android:layout_height="wrap_content"
 
     android:gravity="center"
-    android:paddingTop="24dp">
+    android:paddingTop="@dimen/_16sdp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already have an account?"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="@dimen/_13ssp"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="   Sign in"
         android:textColor="#BBACF2"
-        android:textSize="16sp"
+        android:textSize="@dimen/_13ssp"
         android:clickable="true"
         />
 

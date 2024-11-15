@@ -27,12 +27,20 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import passwordTransformation
 import Backend.*
+import android.R.attr.duration
+import android.animation.AnimatorSet
+import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.content.res.ColorStateList
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
+import android.view.animation.DecelerateInterpolator
+import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 
 
@@ -42,6 +50,11 @@ class signUpPage : AppCompatActivity() {
     private lateinit var apiService: ApiService
 
     private var isPasswordVisible = false
+
+
+    private lateinit var passwordStrengthBar: ProgressBar
+    private lateinit var passwordStrengthLabel: TextView
+
 
 
 
@@ -146,7 +159,10 @@ class signUpPage : AppCompatActivity() {
                     passwordInput.transformationMethod = if (isPasswordVisible) {
                         HideReturnsTransformationMethod.getInstance()
                     } else {
+
+
                         passwordTransformation()
+
                     }
                     // Update eye icon
                     passwordInput.setCompoundDrawablesWithIntrinsicBounds(
@@ -195,6 +211,29 @@ class signUpPage : AppCompatActivity() {
             // Call the API
             registerUser(signUpRequest)
         }
+
+
+
+
+        //password strength
+        passwordStrengthBar = findViewById <ProgressBar> (R.id.passwordStrengthBar)
+        passwordStrengthLabel = findViewById(R.id.passwordStrengthLabel)
+
+        passwordInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                updatePasswordStrength(s.toString())
+            }
+            override fun afterTextChanged(s: Editable?) {}
+
+
+        })
+
+
+
+
+
+
     }
 
     private fun registerUser(signUpRequest: SignUpRequest) {
@@ -212,22 +251,30 @@ class signUpPage : AppCompatActivity() {
 
                         if (signUpResponse.message == "user created registered") {
 
-                            Toast.makeText(this@signUpPage, "user created registered", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this@signUpPage,
+                                "user created registered",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-
-                        } else if (signUpResponse.message == "username or email already exists") {
-                            // Handle the case where the username or email is already taken
-                            // Show an error message to the user
-
-                            Toast.makeText(this@signUpPage, "username or email already exists", Toast.LENGTH_SHORT).show()
                         }
+//                         else if (signUpResponse.message == "username or email already exists") {
+//
+//
+//                            Toast.makeText(this@signUpPage, "username or email already exists", Toast.LENGTH_SHORT).show()
+//                        }
                     }
                 }
 
 
                 else {
-
-                    Toast.makeText(this@signUpPage, "Registration failed", Toast.LENGTH_SHORT).show()
+                    // Handling unsuccessful responses
+                    val errorMessage = response.errorBody()?.string()
+                    if (errorMessage?.contains("username or email already exists") == true) {
+                        Toast.makeText(this@signUpPage, "Username or email already exists.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@signUpPage, "Registration unsuccessful. Please try again.", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
 
@@ -244,6 +291,64 @@ class signUpPage : AppCompatActivity() {
 
 
 
+    }
+
+
+    private fun updatePasswordStrength(password: String) {
+        passwordStrengthBar.visibility = View.VISIBLE
+        passwordStrengthLabel.visibility = View.VISIBLE
+
+
+        val passwordInput = findViewById<EditText>(R.id.passwordInput)
+        if(passwordInput.text.length ==0){
+            passwordStrengthBar.visibility= View.GONE
+            passwordStrengthLabel.visibility= View.GONE
+        }
+
+        // Calculate password strength and define the associated progress, color, and label
+        val (targetProgress, targetColor, labelText) = when (calculatePasswordStrength(password)) {
+            in 0..32 -> Triple(25, Color.parseColor("#E33629"), "Your Password is too weak")
+            in 33..99 -> Triple(50, Color.parseColor("#F8BD00"), "Your Password could be stronger")
+            else -> Triple(100, Color.parseColor("#319F43"), "Your Password is strong")
+        }
+
+        val progressAnimator = ObjectAnimator.ofInt(passwordStrengthBar, "progress", passwordStrengthBar.progress, targetProgress).apply {
+            duration = 60000
+
+            interpolator = DecelerateInterpolator()
+
+        }
+
+
+        val currentColor = passwordStrengthBar.progressTintList?.defaultColor ?: Color.GRAY
+        val colorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), currentColor, targetColor).apply {
+            duration = 60000
+            addUpdateListener { animator ->
+                val animatedColor = animator.animatedValue as Int
+                passwordStrengthBar.progressTintList = ColorStateList.valueOf(animatedColor)
+                passwordStrengthLabel.setTextColor(animatedColor)
+            }
+        }
+
+        // Update the label text in sync with animations
+        passwordStrengthLabel.text = labelText
+
+        // Combine animations into AnimatorSet to run them together
+        AnimatorSet().apply {
+            playTogether(progressAnimator, colorAnimator)
+            start()
+        }
+    }
+
+    private fun calculatePasswordStrength(password: String): Int {
+        var score = 0
+
+        if (password.length >= 8) score += 25
+        if (password.matches(".*[A-Z].*".toRegex())) score += 25
+        if (password.matches(".*[0-9].*".toRegex())) score += 25
+        if (password.matches(".*[@#\$%^&+=].*".toRegex())) score += 25
+
+        return score
     }
 
 
