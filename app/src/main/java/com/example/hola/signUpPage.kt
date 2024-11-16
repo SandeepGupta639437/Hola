@@ -28,6 +28,8 @@ import kotlinx.coroutines.launch
 import passwordTransformation
 import Backend.*
 import android.R.attr.duration
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
@@ -39,8 +41,10 @@ import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
+import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.ProgressBar
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 
 
@@ -52,8 +56,14 @@ class signUpPage : AppCompatActivity() {
     private var isPasswordVisible = false
 
 
-    private lateinit var passwordStrengthBar: ProgressBar
-    private lateinit var passwordStrengthLabel: TextView
+//    private lateinit var passwordStrengthBar: ProgressBar
+//    private lateinit var passwordStrengthLabel: TextView
+
+    private lateinit var passwordStrengthBar: CardView
+   private lateinit var passwordStrengthLabel: TextView
+   private lateinit var progressParent: CardView
+
+
 
 
 
@@ -216,18 +226,26 @@ class signUpPage : AppCompatActivity() {
 
 
         //password strength
-        passwordStrengthBar = findViewById <ProgressBar> (R.id.passwordStrengthBar)
+//        passwordStrengthBar = findViewById <ProgressBar> (R.id.passwordStrengthBar)
+//        passwordStrengthLabel = findViewById(R.id.passwordStrengthLabel)
+
+        passwordStrengthBar = findViewById(R.id.progres)
         passwordStrengthLabel = findViewById(R.id.passwordStrengthLabel)
+        progressParent=findViewById<CardView>(R.id.progressParent)
 
         passwordInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 updatePasswordStrength(s.toString())
-            }
-            override fun afterTextChanged(s: Editable?) {}
+                }
+            override fun afterTextChanged(s: Editable?){}
 
 
         })
+
+
+
+
 
 
 
@@ -297,50 +315,84 @@ class signUpPage : AppCompatActivity() {
     private fun updatePasswordStrength(password: String) {
         passwordStrengthBar.visibility = View.VISIBLE
         passwordStrengthLabel.visibility = View.VISIBLE
+        progressParent.visibility = View.VISIBLE
+
+
+
 
 
         val passwordInput = findViewById<EditText>(R.id.passwordInput)
-        if(passwordInput.text.length ==0){
-            passwordStrengthBar.visibility= View.GONE
-            passwordStrengthLabel.visibility= View.GONE
+
+        if (passwordInput.text.length == 0||passwordStrengthLabel.text.equals("Your Password is strong")) {
+            passwordStrengthBar.visibility = View.GONE
+            passwordStrengthLabel.visibility = View.GONE
+            progressParent.visibility = View.GONE
+
         }
 
-        // Calculate password strength and define the associated progress, color, and label
+
         val (targetProgress, targetColor, labelText) = when (calculatePasswordStrength(password)) {
-            in 0..32 -> Triple(25, Color.parseColor("#E33629"), "Your Password is too weak")
-            in 33..99 -> Triple(50, Color.parseColor("#F8BD00"), "Your Password could be stronger")
-            else -> Triple(100, Color.parseColor("#319F43"), "Your Password is strong")
+            in 0..32 -> Triple(0.25f, Color.parseColor("#E33629"), "Your Password is too weak")
+            in 33..99 -> Triple(
+                0.50f,
+                Color.parseColor("#F8BD00"),
+                "Your Password could be stronger"
+            )
+
+            else -> Triple(1.0f, Color.parseColor("#319F43"), "Your Password is strong")
         }
 
-        val progressAnimator = ObjectAnimator.ofInt(passwordStrengthBar, "progress", passwordStrengthBar.progress, targetProgress).apply {
-            duration = 60000
-
-            interpolator = DecelerateInterpolator()
-
-        }
+        val parentWidth = progressParent.width
+        val targetWidth = (parentWidth * targetProgress).toInt()
 
 
-        val currentColor = passwordStrengthBar.progressTintList?.defaultColor ?: Color.GRAY
-        val colorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), currentColor, targetColor).apply {
-            duration = 60000
-            addUpdateListener { animator ->
-                val animatedColor = animator.animatedValue as Int
-                passwordStrengthBar.progressTintList = ColorStateList.valueOf(animatedColor)
-                passwordStrengthLabel.setTextColor(animatedColor)
+
+
+
+        val widthAnimator =
+            ValueAnimator.ofInt(passwordStrengthBar.layoutParams.width, targetWidth).apply {
+                duration = 1000000
+                interpolator = android.view.animation.DecelerateInterpolator()
+                addUpdateListener { animation ->
+                    val animatedWidth = animation.animatedValue as Int
+                    passwordStrengthBar.layoutParams = passwordStrengthBar.layoutParams.apply {
+                        width = animatedWidth
+                    }
+                    passwordStrengthBar.requestLayout()
+
+                }
             }
-        }
 
-        // Update the label text in sync with animations
-        passwordStrengthLabel.text = labelText
 
-        // Combine animations into AnimatorSet to run them together
+        val currentColor = (passwordStrengthBar.backgroundTintList?.defaultColor ?: Color.GRAY)
+        val colorAnimator =
+            ValueAnimator.ofObject(ArgbEvaluator(), currentColor, targetColor).apply {
+                duration = 1000000
+                addUpdateListener { animator ->
+                    val animatedColor = animator.animatedValue as Int
+               passwordStrengthLabel.textColors
+                    passwordStrengthBar.backgroundTintList = ColorStateList.valueOf(animatedColor)
+                    passwordStrengthLabel.setTextColor(animatedColor)
+
+                }
+            }
+
+
+
+
+
+
         AnimatorSet().apply {
-            playTogether(progressAnimator, colorAnimator)
+            playTogether(widthAnimator, colorAnimator)
             start()
         }
+
+
+        passwordStrengthLabel.text = labelText
+
     }
 
-    private fun calculatePasswordStrength(password: String): Int {
+    private   fun calculatePasswordStrength(password: String): Int {
         var score = 0
 
         if (password.length >= 8) score += 25
