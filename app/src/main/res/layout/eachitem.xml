@@ -23,9 +23,12 @@
                 android:id="@+id/cardView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="5dp"
+                app:cardCornerRadius="30dp"
                 android:layout_marginStart="5dp"
-                app:cardCornerRadius="30dp">
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/productimage"
@@ -41,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="Analysa Saxena"
                 android:textColor="@color/white"
+                android:layout_marginStart="10dp"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -6,10 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.api.Home
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private val homepage=Home()
+    private val homepage= Home()
     private val reelspage=reelspage()
     private val createpage=create_page()
     private val locationpage=locationpage()
