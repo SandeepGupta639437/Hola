@@ -1,6 +1,7 @@
 package com.example.hola
 
 import LoginRequest
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
@@ -64,6 +65,22 @@ class Login : AppCompatActivity() {
                         val loginResponse = response.body()
                         Toast.makeText(this@Login, "Login Successful: ${loginResponse?.access}", Toast.LENGTH_SHORT).show()
                         // Navigate to the next activity or perform other actions
+
+                        val accessToken = loginResponse?.access
+
+                        // Optionally, store the access token
+                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("access_token", accessToken) // Store the access token
+                        editor.apply()
+
+                        // Navigate to the homepage after successful login
+                        Toast.makeText(this@Login, "Login Successful", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@Login, OTP::class.java)
+                        startActivity(intent)
+
+                        // Optionally, finish the login activity so the user can't return to it by pressing back
+                        finish()
                     } else {
                         Toast.makeText(this@Login, "Login Failed: ${response.message()}", Toast.LENGTH_SHORT).show()
                     }
