@@ -5,16 +5,21 @@ plugins {
 
 android {
     namespace = "com.example.hola"
-    compileSdk = 35
+    compileSdk =35
+    buildToolsVersion ="33.0.0"
 
     defaultConfig {
         applicationId = "com.example.hola"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 21
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures{
+        viewBinding =true
     }
 
     buildTypes {
@@ -42,7 +47,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(project(":app"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

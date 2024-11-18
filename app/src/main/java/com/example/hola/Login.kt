@@ -41,7 +41,7 @@ class Login : AppCompatActivity() {
         pass_display.visibility = View.INVISIBLE
 
         val passwordEditText: EditText = findViewById(R.id.passwordEditText)
-         passwordEditText.transformationMethod = passwordTransformation()
+        passwordEditText.transformationMethod = passwordTransformation()
 
         val loginbtn : Button = findViewById<Button>(R.id.LoginButton)
 
@@ -97,6 +97,6 @@ class passwordTransformation : PasswordTransformationMethod() {
 
         override fun subSequence(startIndex: Int, endIndex: Int): CharSequence {
             return AsteriskCharSequence(source.subSequence(startIndex, endIndex))
-            }
         }
+    }
 }
