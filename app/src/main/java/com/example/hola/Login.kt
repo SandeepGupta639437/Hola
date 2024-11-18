@@ -1,15 +1,23 @@
 package com.example.hola
 
+import LoginRequest
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +41,45 @@ class Login : AppCompatActivity() {
         pass_display.visibility = View.INVISIBLE
 
         val passwordEditText: EditText = findViewById(R.id.passwordEditText)
-        passwordEditText.transformationMethod = passwordTransformation()
+         passwordEditText.transformationMethod = passwordTransformation()
+
+        val loginbtn : Button = findViewById<Button>(R.id.LoginButton)
+
+
+        loginbtn.setOnClickListener {
+            val email = findViewById<EditText>(R.id.emailEditText).text.toString().trim()
+            val password = findViewById<EditText>(R.id.passwordEditText).text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val loginRequest = LoginRequest(email, password)
+            val call: Call<LoginResponse> = RetrofitInstance.apiService.login(loginRequest)
+
+            call.enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful) {
+                        val loginResponse = response.body()
+                        Toast.makeText(this@Login, "Login Successful: ${loginResponse?.access}", Toast.LENGTH_SHORT).show()
+                        // Navigate to the next activity or perform other actions
+                    } else {
+                        Toast.makeText(this@Login, "Login Failed: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(this@Login, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
+
 
     }
 }
+
 
 class passwordTransformation : PasswordTransformationMethod() {
     override fun getTransformation(source: CharSequence, view: View): CharSequence {
