@@ -12,31 +12,31 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class Home : Fragment(){
-  override fun onCreateView(
-   inflater: LayoutInflater, container: ViewGroup?,
-   savedInstanceState: Bundle?
-  ): View? {
-   val view = inflater.inflate(R.layout.fragment_home, container, false)
+ override fun onCreateView(
+  inflater: LayoutInflater, container: ViewGroup?,
+  savedInstanceState: Bundle?
+ ): View? {
+  val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-   val tabLayout: TabLayout = view.findViewById(R.id.tablayout)
-   val viewPager: ViewPager2 = view.findViewById(R.id.ViewPager)
+  val tabLayout: TabLayout = view.findViewById(R.id.tablayout)
+  val viewPager: ViewPager2 = view.findViewById(R.id.ViewPager)
 
-   // Set up the ViewPager2 adapter
-   val adapter = ViewPagerAdapter(this)
-   viewPager.adapter = adapter
+  // Set up the ViewPager2 adapter
+  val adapter = ViewPagerAdapter(this)
+  viewPager.adapter = adapter
 
-   // Connect TabLayout with ViewPager2
-   TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-    tab.text = when (position) {
-     0 -> "All"
-     1 -> "Following"
-     else -> "Tab $position"
-    }
-   }.attach()
-
-   return view
+  // Connect TabLayout with ViewPager2
+  TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+   tab.text = when (position) {
+    0 -> "All"
+    1 -> "Following"
+    else -> "Tab $position"
    }
+  }.attach()
 
-
-
+  return view
  }
+
+
+
+}

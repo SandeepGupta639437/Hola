@@ -321,14 +321,14 @@ class signUpPage : AppCompatActivity() {
 
 
 
-        val passwordInput = findViewById<EditText>(R.id.passwordInput)
-
-        if (passwordInput.text.length == 0||passwordStrengthLabel.text.equals("Your Password is strong")) {
-            passwordStrengthBar.visibility = View.GONE
-            passwordStrengthLabel.visibility = View.GONE
-            progressParent.visibility = View.GONE
-
-        }
+//        val passwordInput = findViewById<EditText>(R.id.passwordInput)
+//
+//        if (passwordInput.text.length == 0||passwordStrengthLabel.text.equals("Your Password is strong")) {
+//            passwordStrengthBar.visibility = View.GONE
+//            passwordStrengthLabel.visibility = View.GONE
+//            progressParent.visibility = View.GONE
+//
+//        }
 
 
         val (targetProgress, targetColor, labelText) = when (calculatePasswordStrength(password)) {

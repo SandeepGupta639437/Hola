@@ -35,7 +35,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/delivery" />
+                    android:src="@drawable/send" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -84,7 +84,8 @@
             android:layout_marginBottom="5dp"
             android:textColor="@color/white"
             android:textSize="17sp"
-            android:text="There are many people but why always me hey got please give me some happiness">
+            android:text="There are many people but why always me hey got please give me some happiness"
+            >
         </TextView>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
