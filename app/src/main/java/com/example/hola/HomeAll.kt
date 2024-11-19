@@ -38,7 +38,7 @@ class HomeAll : Fragment() {
             .build()
             .create(ApiInterface::class.java)
         val retrofitData = retrofitBuilder.getApiData()
-        val value = retrofitData.enqueue(object : Callback<ApiData?> {
+        retrofitData.enqueue(object : Callback<ApiData?> {
             override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
                 // Check if the response is successful and the body is not null
                 response.body()?.let { responseBody ->

@@ -1,16 +1,10 @@
 package com.example.hola
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.CommentAdapter
@@ -26,7 +20,11 @@ class CommentPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment_page)
-
+        val backbutton = findViewById<ImageView>(R.id.backfromcomment)
+        backbutton.setOnClickListener{
+            val intent =Intent(this@CommentPage,MainActivity()::class.java)
+            startActivity(intent)
+        }
         recyclerView = findViewById(R.id.recyclerCommentView)
 
         val retrofitBuilder = Retrofit.Builder()
