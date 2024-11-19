@@ -82,6 +82,7 @@ class Login : AppCompatActivity() {
                         // Optionally, finish the login activity so the user can't return to it by pressing back
                         finish()
                     } else {
+                        pass_display.visibility = View.VISIBLE
                         Toast.makeText(this@Login, "Login Failed: ${response.message()}", Toast.LENGTH_SHORT).show()
                     }
                 }
