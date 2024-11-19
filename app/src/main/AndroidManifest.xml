@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Hola"
         tools:targetApi="31">
         <activity
+            android:name=".passwordandActivity"
+            android:exported="false" />
+        <activity
             android:name=".Accounts_Center"
             android:exported="false" />
         <activity
