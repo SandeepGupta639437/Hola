@@ -14,15 +14,15 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CommentPage : AppCompatActivity() {
+class CommentsPage : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var CommentAdapter: CommentAdapter
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_comment_page)
+        setContentView(R.layout.activity_comments_page)
         val backbutton = findViewById<ImageView>(R.id.backfromcomment)
         backbutton.setOnClickListener{
-            val intent =Intent(this@CommentPage,MainActivity()::class.java)
+            val intent =Intent(this@CommentsPage,MainActivity()::class.java)
             startActivity(intent)
         }
         recyclerView = findViewById(R.id.recyclerCommentView)
@@ -39,9 +39,9 @@ class CommentPage : AppCompatActivity() {
                 val responseBody = response.body()
                 val productList = responseBody?.products!!
 
-                CommentAdapter= CommentAdapter(this@CommentPage,productList)
+                CommentAdapter= CommentAdapter(this@CommentsPage,productList)
                 recyclerView.adapter=CommentAdapter
-                recyclerView.layoutManager=LinearLayoutManager(this@CommentPage)
+                recyclerView.layoutManager=LinearLayoutManager(this@CommentsPage)
             }
             override fun onFailure(call: Call<ApiData?>, t: Throwable) {
                 Log.d("Home", "onFailure: ${t.message}")

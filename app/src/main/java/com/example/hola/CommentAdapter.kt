@@ -15,7 +15,7 @@ class CommentAdapter(val context: Context, private val productArrayList: List<Pr
     RecyclerView.Adapter<CommentAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.eachcomment, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.eachcomments, parent, false)
         return MyViewHolder(itemView)
     }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

@@ -27,7 +27,7 @@ class HomeAll : Fragment() {
     ): View? {
         val imageview=view?.findViewById<ImageView>(R.id.commentic)
         imageview?.setOnClickListener{
-            val intent= Intent(requireContext(),CommentPage::class.java)
+            val intent= Intent(requireContext(),CommentsPage::class.java)
             startActivity(intent)
         }
         val view = inflater.inflate(R.layout.fragment_home_all, container, false)

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D0D0D"
-    tools:context=".Home">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -20,18 +20,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:src="@drawable/hola"
+            android:src="@drawable/holaic"
             app:layout_constraintEnd_toStartOf="@+id/notification"
             app:layout_constraintHorizontal_bias="0.058"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
 
         <ImageView
             android:id="@+id/notification"
             android:layout_width="43dp"
             android:layout_height="32dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/notification"
+            android:src="@drawable/notification1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/message"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +43,7 @@
             android:layout_width="31dp"
             android:layout_height="28dp"
             android:layout_marginEnd="12dp"
-            android:src="@drawable/message"
+            android:src="@drawable/message1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

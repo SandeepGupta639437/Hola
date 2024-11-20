@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EAFF"
+    android:orientation="vertical"
+    tools:context=".chatting">
+
+<RelativeLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EAFF"
+    android:orientation="vertical"
+    tools:context=".chatting"
+  >
+
+
+
+    <RelativeLayout
+
+
+        android:layout_marginTop="@dimen/_32sdp"
+        android:id="@+id/profileSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingLeft="@dimen/_16sdp"
+        android:paddingRight="@dimen/_11sdp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_11sdp"
+        >
+
+
+        <ImageButton
+            android:id="@+id/backChatting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="#F5EAFF"
+
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true">
+
+        </ImageButton>
+
+
+        <RelativeLayout
+            android:id="@+id/profileImg"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:background="@drawable/circle_shape"
+            android:clipToOutline="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_toEndOf="@+id/backChatting">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_pic" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/profileDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toEndOf="@+id/profileImg"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp">
+
+
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Richard Wright"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lastSeen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="#565656"
+                />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/dot_menu_vertical"
+            android:background="@null"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Menu Button" />
+
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/profileSection"
+
+        android:background="@drawable/top_corner_round_background"
+        android:clipToOutline="true"
+
+
+        android:orientation="vertical"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/chatting_background" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_above="@id/messageInputLayout"
+
+
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+
+            android:clipToPadding="false"
+            android:padding="8dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/messageInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_11sdp"
+        android:paddingRight="@dimen/_11sdp"
+
+        android:layout_alignParentBottom="true">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/chatting_edittext_rounded_background"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintHeight_max="@dimen/_108sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:src="@drawable/camera"
+                android:layout_marginLeft="@dimen/_23sdp"/>
+
+            <View
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:background="@color/white"
+                android:layout_marginRight="@dimen/_8sdp"/>
+
+
+            <EditText
+
+                android:id="@+id/messageInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:focusableInTouchMode="true"
+                android:hint="Type a message"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"/>
+
+            <ImageView
+                android:id="@+id/mic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:src="@drawable/mic" />
+
+            <ImageView
+                android:id="@+id/sendImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:src="@drawable/images_icon" />
+
+            <ImageView
+                android:id="@+id/sendGif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:src="@drawable/gif_icon" />
+            <ImageView
+                android:id="@+id/sendButton"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:src="@drawable/chatting_send_dark"
+                android:visibility="gone"
+                />
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

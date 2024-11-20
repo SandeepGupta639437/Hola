@@ -38,7 +38,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/delivery" />
+                    android:src="@drawable/send1" />
             </androidx.cardview.widget.CardView>
 
 
@@ -111,5 +111,16 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productName"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:text="There are many people but why always me hey got please give me some happiness">
+        </TextView>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

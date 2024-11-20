@@ -10,8 +10,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hola.CommentPage
-import com.example.hola.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,7 +28,7 @@ class HomeFollowing : Fragment() {
     ): View? {
         val imageview=view?.findViewById<ImageView>(R.id.commentic)
         imageview?.setOnClickListener{
-            val intent= Intent(requireContext(), CommentPage::class.java)
+            val intent= Intent(requireContext(), CommentsPage::class.java)
             startActivity(intent)
         }
         val view = inflater.inflate(R.layout.fragment_home_following, container, false)

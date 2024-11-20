@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#0D0D0D"
     android:orientation="vertical"
-    tools:context=".CommentPage">
+    tools:context=".CommentsPage">
 
     <LinearLayout
         android:id="@+id/constraintLayout3"
@@ -29,11 +29,22 @@
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Comments"
             android:layout_gravity="center_vertical"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
+=======
+            android:src="@drawable/hola"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/notification"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+>>>>>>> a163d068ac3dfdd5d7b5dc8d9a35902cb9c39631
 
 
     </LinearLayout>

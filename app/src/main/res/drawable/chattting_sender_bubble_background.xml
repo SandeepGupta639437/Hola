@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bubble Background Color -->
+    <solid android:color="#BBACF2" />
+
+    <!-- Rounded Corners -->
+    <corners android:radius="16dp" />
+
+    <!-- Shadow Effect -->
+    <elevation android:value="4dp" />
+
+    <!-- Optional: Add an inset to create some padding inside the bubble -->
+    <padding
+        android:left="10dp"
+        android:right="10dp"
+        android:top="8dp"
+        android:bottom="8dp" />
+</shape>
