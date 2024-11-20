@@ -2,9 +2,10 @@ package com.example.hola
 
 
 
-import Backend.ApiService
-import Backend.RetrofitInstance
+
+import Backend.*
 import Backend.SignUpRequest
+
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
@@ -26,34 +27,28 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import passwordTransformation
-import Backend.*
-import android.R.attr.duration
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
-import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.MotionEvent
-import android.view.ViewGroup
-import android.view.animation.DecelerateInterpolator
-import android.widget.ProgressBar
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import com.example.hola.Login
 
 
 class signUpPage : AppCompatActivity() {
 
 
-    private lateinit var apiService: ApiService
+    //private lateinit var apiService: ApiService
+    private lateinit var apiService:ApiService
 
-    private var isPasswordVisible = false
+    private var isPasswordVis = false
 
 
 //    private lateinit var passwordStrengthBar: ProgressBar
@@ -165,8 +160,8 @@ class signUpPage : AppCompatActivity() {
                 val drawableEnd = passwordInput.compoundDrawables[2]
                 if (drawableEnd != null && event.rawX >= (passwordInput.right - drawableEnd.bounds.width())) {
 
-                    isPasswordVisible = !isPasswordVisible
-                    passwordInput.transformationMethod = if (isPasswordVisible) {
+                    isPasswordVis = !isPasswordVis
+                    passwordInput.transformationMethod = if (isPasswordVis) {
                         HideReturnsTransformationMethod.getInstance()
                     } else {
 
@@ -177,7 +172,7 @@ class signUpPage : AppCompatActivity() {
                     // Update eye icon
                     passwordInput.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.lock_icon, 0,
-                        if (isPasswordVisible) R.drawable.open_eye else R.drawable.close_eye, 0
+                        if (isPasswordVis) R.drawable.open_eye else R.drawable.close_eye, 0
                     )
                     // Move cursor to the end
                     passwordInput.setSelection(passwordInput.text.length)
@@ -216,7 +211,14 @@ class signUpPage : AppCompatActivity() {
             val password = passwordInput.text.toString()
 
             // Create the sign-up request object
-            val signUpRequest = SignUpRequest(fullName, email, password)
+           // val signUpRequest = SignUpRequest(fullName, email, password)
+
+            val signUpRequest = SignUpRequest(
+                full_name = fullName,
+                email = email,
+                password = password
+            )
+            registerUser(signUpRequest)
 
             // Call the API
             registerUser(signUpRequest)
@@ -248,13 +250,34 @@ class signUpPage : AppCompatActivity() {
 
 
 
+        //sign up to signin
+        val signupTextView = findViewById<TextView>(R.id.signinText)
+
+        signupTextView.setOnClickListener {
+
+            signupTextView.setBackgroundColor(Color.parseColor("#6C60A0"))
+
+            val intent = Intent(this@signUpPage, Login::class.java)
+            startActivity(intent)
+
+            signupTextView.postDelayed({
+
+                signupTextView.setBackgroundColor(Color.TRANSPARENT)
+            }, 200)
+        }
+
+
+
+
+
+
 
 
 
 
     }
 
-    private fun registerUser(signUpRequest: SignUpRequest) {
+   /* private fun registerUser(signUpRequest: SignUpRequest) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
 
@@ -267,13 +290,19 @@ class signUpPage : AppCompatActivity() {
 
                         Toast.makeText(this@signUpPage, signUpResponse.message, Toast.LENGTH_SHORT).show()
 
-                        if (signUpResponse.message == "user created registered") {
+                        if (signUpResponse.message.equals("User registered successfully")) {
 
                             Toast.makeText(
                                 this@signUpPage,
                                 "user created registered",
                                 Toast.LENGTH_SHORT
                             ).show()
+
+
+                            val intent = Intent(this@signUpPage, Login::class.java)
+                            startActivity(intent)
+
+
 
                         }
 //                         else if (signUpResponse.message == "username or email already exists") {
@@ -288,6 +317,9 @@ class signUpPage : AppCompatActivity() {
                 else {
                     // Handling unsuccessful responses
                     val errorMessage = response.errorBody()?.string()
+
+                    Log.d(errorMessage, "AchalVishnoi")
+
                     if (errorMessage?.contains("username or email already exists") == true) {
                         Toast.makeText(this@signUpPage, "Username or email already exists.", Toast.LENGTH_SHORT).show()
                     } else {
@@ -309,7 +341,66 @@ class signUpPage : AppCompatActivity() {
 
 
 
+    }*/
+
+
+
+
+    private fun registerUser(signUpRequest: SignUpRequest) {
+
+        findViewById<TextView>(R.id.signupAlert).visibility= View.GONE
+
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+
+
+                val response = apiService.registerUser(signUpRequest)
+
+                if (response.isSuccessful) {
+                    val signUpResponse = response.body()
+                    if (signUpResponse != null && signUpResponse.message == "User registered successfully") {
+                        Toast.makeText(this@signUpPage, "Registration successful!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@signUpPage, Login::class.java)
+                        intent.putExtra("email", signUpRequest.email) // Pass email
+                        intent.putExtra("password", signUpRequest.password) // Pass password
+                        startActivity(intent)
+                        finish()
+                    }
+                } else {
+                    val errorMessage = response.errorBody()?.string()
+                    if (errorMessage?.contains("User with this email is already registered") == true) {
+
+                        findViewById<TextView>(R.id.signupAlert).visibility= View.VISIBLE
+
+//                        Toast.makeText(this@signUpPage, "Email is already registered.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@signUpPage, "Registration failed. Try again.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+//                if (response.isSuccessful) {
+//                    Log.d("SignUpResponse", "Success: ${response.body()}")
+//
+//                    val intent = Intent(this@signUpPage, Login::class.java)
+//                    intent.putExtra("email", signUpRequest.email) // Pass email
+//                    intent.putExtra("password", signUpRequest.password) // Pass password
+//                    startActivity(intent)
+//                    finish()
+//
+//
+//                } else {
+//                    Log.d("SignUpResponse", "Error: ${response.errorBody()?.string()}")
+//                }
+
+
+
+            } catch (e: Exception) {
+                Toast.makeText(this@signUpPage, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
+
 
 
     private fun updatePasswordStrength(password: String) {
@@ -389,6 +480,17 @@ class signUpPage : AppCompatActivity() {
 
 
         passwordStrengthLabel.text = labelText
+
+
+        if (targetProgress == 1.0f) {
+            passwordStrengthLabel.postDelayed({
+                passwordStrengthBar.visibility = View.GONE
+                passwordStrengthLabel.visibility = View.GONE
+                progressParent.visibility = View.GONE
+            }, 400)
+
+        }
+
 
     }
 

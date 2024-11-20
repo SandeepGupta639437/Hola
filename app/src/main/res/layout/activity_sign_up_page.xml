@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/sighn_bg"
+        android:src="@drawable/main_bg"
         android:scaleType="centerCrop" />
 
 
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
 
 
-                android:layout_marginBottom="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -86,75 +86,97 @@
 
                 </LinearLayout>
 
-                <EditText
-                    android:id="@+id/nameInput"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_38sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_8sdp"
-
-                    android:layout_gravity="center"
-
-                    android:background="@drawable/edittext_background"
                     android:hint="Full Name"
-                    android:inputType="textPersonName"
-                    android:paddingLeft="@dimen/_16sdp"
+                    android:textColorHint="@color/white"
 
-                    android:paddingRight="@dimen/_16sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_8sdp">
 
-                    android:drawableLeft="@drawable/person_icon"
-                    android:textColor="#FFFFFF"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:textColorHint="#FFFFFF"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/_16sdp"
+                        android:paddingRight="@dimen/_16sdp"
+                        android:drawableLeft="@drawable/person_icon"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:textColor="@color/white"
 
-                <EditText
-                    android:id="@+id/emailInput"
+                        android:textColorHint="#FFFFFF"
+                        android:inputType="textPersonName"
+                        android:background="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_38sdp"
-
-                    android:layout_gravity="center"
-
-
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="@drawable/edittext_background"
                     android:hint="Email Address"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="@dimen/_16sdp"
 
-                    android:paddingRight="@dimen/_16sdp"
+                    android:textColorHint="@color/white"
 
-                    android:drawableLeft="@drawable/mail_icon"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:textColorHint="#FFFFFF"
-                    android:textColor="#FFFFFF"/>
+                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_8sdp">
 
-                <EditText
-                    android:id="@+id/passwordInput"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/_16sdp"
+                        android:paddingRight="@dimen/_16sdp"
+                        android:drawableLeft="@drawable/mail_icon"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#FFFFFF"
+                        android:inputType="textEmailAddress"
+                        android:background="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_38sdp"
-
-                    android:layout_gravity="center"
-
-
-                    android:background="@drawable/edittext_background"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:hint="Password"
-                    android:inputType="textPassword"
-                    android:paddingLeft="@dimen/_16sdp"
-
-                    android:paddingRight="@dimen/_16sdp"
-
-                    android:drawableLeft="@drawable/lock_icon"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:textColorHint="#FFFFFF"
-                    android:textColor="#FFFFFF"
 
 
+                    android:textColorHint="@color/white"
+
+                    app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/_16sdp"
+                        android:paddingRight="@dimen/_16sdp"
+                        android:drawableLeft="@drawable/lock_icon"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#FFFFFF"
+                        android:inputType="textPassword"
+                        android:background="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-                />
 
 
-
-<!--                <ProgressBar-->
+                <!--                <ProgressBar-->
 <!--                    android:id="@+id/passwordStrengthBar"-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="8dp"-->
@@ -162,6 +184,16 @@
 <!--                    android:visibility="gone"-->
 <!--                    android:max="100"-->
 <!--                    style="?android:attr/progressBarStyleHorizontal" />-->
+
+                <TextView
+                    android:id="@+id/signupAlert"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail already registered"
+                    android:textColor="#E33629"
+                    android:visibility="gone"/>
+
 
 
 
@@ -324,6 +356,7 @@
         android:textSize="@dimen/_13ssp"
         />
     <TextView
+        android:id="@+id/signinText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="   Sign in"
