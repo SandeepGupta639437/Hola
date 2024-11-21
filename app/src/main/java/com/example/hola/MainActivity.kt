@@ -1,5 +1,7 @@
 package com.example.hola
 
+import android.R.attr.centerX
+import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +9,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.api.Home
+
+
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
+import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -81,5 +91,11 @@ class MainActivity : AppCompatActivity() {
             activeFragment = fragment
         }
 
+
+
+
+
     }
 }
+
+
