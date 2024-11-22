@@ -8,7 +8,7 @@
     android:background="#0D0D0D"
     tools:context=".profilepage">
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/profile1"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/delivery"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/liveprofileimage"
+                android:id="@+id/profilemain"
                 android:layout_width="70dp"
                 android:layout_height="61dp"
                 android:layout_gravity="center"
@@ -176,15 +176,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
             <Button
+                android:id="@+id/editProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Edit Profile"
+                android:background="@drawable/card_border"
                 android:textColor="@color/white"
                 android:layout_marginEnd="50dp"
                 android:backgroundTint="#0D0D0D"/>
             <Button
+                android:id="@+id/shareProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/card_border"
                 android:textColor="@color/white"
                 android:text="Share Profile"
                 android:backgroundTint="#0D0D0D"/>

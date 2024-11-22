@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:padding="10dp"
+    tools:context=".EditProfile">
+    <LinearLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#0D0D0D"
+        android:padding="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/backfromeditprofile"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseline_arrow_back_24"
+            />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            />
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardVieweditprofile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardCornerRadius="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="5dp">
+        <ImageView
+            android:id="@+id/editprofileimage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/delivery" />
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Picture"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/purple"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/NameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/UsernameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bio"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+        app:boxCornerRadiusTopStart="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_8sdp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/BioEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/hideabusivecomment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Hide Abusive Comment"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/arrowtohidecomments"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrowtohidecomments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hideabusivecomment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/hideabusivecomment"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/submitTheEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_border"
+        android:textColor="@color/purple"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:text="Submit"/>
+
+
+
+</LinearLayout>

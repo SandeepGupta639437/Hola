@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,28 +28,39 @@ class profilepage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profilepage, container, false)
-        recyclerView = view.findViewById(R.id.recyclerViewpost)
-        val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("https://dummyjson.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(ApiInterface::class.java)
-        val retrofitData = retrofitBuilder.getApiData()
-        retrofitData.enqueue(object : Callback<ApiData?> {
-            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
-                // Check if the response is successful and the body is not null
-                response.body()?.let { responseBody ->
-                    val productList = responseBody.products
-                    usepostAdapter = UsePostAdapter(requireContext(), productList)
-                    recyclerView.adapter = usepostAdapter
-                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
-                } ?: Log.d("Home", "Response body is null")
-            }
-            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
-                Log.d("Home", "onFailure: ${t.message}")
-            }
+        val editprofileButton:Button = view.findViewById(R.id.editProfile)
+        editprofileButton.setOnClickListener{
+            val intent =Intent(requireContext(),EditProfile::class.java)
+            startActivity(intent)
         }
-        )
+        val shareprofileButton:Button = view.findViewById(R.id.shareProfile)
+        shareprofileButton.setOnClickListener{
+            val intent =Intent(requireContext(),ShareProfile::class.java)
+            startActivity(intent)
+        }
+
+//        recyclerView = view.findViewById(R.id.recyclerViewpost)
+//        val retrofitBuilder = Retrofit.Builder()
+//            .baseUrl("https://dummyjson.com/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//            .create(ApiInterface::class.java)
+//        val retrofitData = retrofitBuilder.getApiData()
+//        retrofitData.enqueue(object : Callback<ApiData?> {
+//            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
+//                // Check if the response is successful and the body is not null
+//                response.body()?.let { responseBody ->
+//                    val productList = responseBody.products
+//                    usepostAdapter = UsePostAdapter(requireContext(), productList)
+//                    recyclerView.adapter = usepostAdapter
+//                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//                } ?: Log.d("Home", "Response body is null")
+//            }
+//            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
+//                Log.d("Home", "onFailure: ${t.message}")
+//            }
+//        }
+//        )
         return view
     }
 }
