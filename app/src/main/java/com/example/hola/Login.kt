@@ -98,48 +98,7 @@ class Login : AppCompatActivity() {
             apiService = RetrofitInstance.api
 
             val loginRequest = LoginRequest(email, password)
-            //  val call: Call<LoginResponse> = RetrofitInstance.apiService.login(loginRequest)
-//            CoroutineScope(Dispatchers.Main).launch {
-//                try {
-//            val call = apiService.login(loginRequest)
-//
-////            call.enqueue(object:Callback<LoginResponse>{
-////                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-//                    if () {
-//
-//
-//
-//                        val loginResponse = response.body()
-//
-//
-//                        Toast.makeText(this@Login, "Login Successful: ${loginResponse?.access}", Toast.LENGTH_SHORT).show()
-//                        // Navigate to the next activity or perform other actions
-//
-//                        val accessToken = loginResponse?.access
-//
-//                        // Optionally, store the access token
-//                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-//                        val editor = sharedPreferences.edit()
-//                        editor.putString("access_token", accessToken) // Store the access token
-//                        editor.apply()
-//
-//                        // Navigate to the homepage after successful login
-//                        Toast.makeText(this@Login, "Login Successful", Toast.LENGTH_SHORT).show()
-//                        val intent = Intent(this@Login, Home::class.java)
-//                        startActivity(intent)
-//
-//                        // Optionally, finish the login activity so the user can't return to it by pressing back
-//                        finish()
-//                    } else {
-//                        pass_display.visibility = View.VISIBLE
-//                        Toast.makeText(this@Login, "Login Failed: ${response.message()}", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                    Toast.makeText(this@Login, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-//                }
-//            })
+
 
 
 

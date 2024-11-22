@@ -9,6 +9,11 @@ import Backend.LoginResponse
 import Backend.LoginRequest
 import Backend.*
 
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.http.Header
+import retrofit2.http.Multipart
+import retrofit2.http.Part
 
 
 interface ApiService {
@@ -25,6 +30,19 @@ interface ApiService {
 
     @POST("api/auth/reset-password/")
     suspend fun resetPassword(@Body requestBody: ResetPasswordRequest): Response<ResetPasswordResponse>
+
+
+    @Multipart
+    @POST("/api/posts/create/")
+    suspend fun createPost(
+        @Header("Authorization") token: String,
+        @Part("content") content: RequestBody,
+        @Part("tags") tags: RequestBody,
+        @Part("isPublic") isPublic: RequestBody,
+        @Part media: MultipartBody.Part?
+    ): Response<CreatePostResponse>
+
+
 
 
 }

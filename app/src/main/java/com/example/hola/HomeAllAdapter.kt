@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso // Ensure this import is present
 class HomeAllAdapter(private val context: Context, private val productArrayList: List<Product>) :
     RecyclerView.Adapter<HomeAllAdapter.MyViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.eachitemall, parent, false)
         return MyViewHolder(itemView)

@@ -8,70 +8,69 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/holaic"
+        android:icon="@drawable/hola"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/holaic"
+        android:roundIcon="@drawable/hola"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hola"
         tools:targetApi="31">
-        <activity
-            android:name=".OthersProfile"
-            android:exported="false" />
-        <activity
-            android:name=".ShareProfile"
-            android:exported="false" />
-        <activity
-            android:name=".EditProfile"
-            android:exported="false" />
+
         <activity
             android:name=".Settings"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Splashscreen"
             android:exported="true"
             android:screenOrientation="portrait">
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+<!--            <category android:name="android.intent.category.LAUNCHER" />-->
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
 
+            </intent-filter>
         </activity>
+
+
         <activity
             android:name=".chatting"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+
         <activity
             android:name=".signUpPage"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+
+        </activity>
         <activity
             android:name=".ResetPasssword"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".OTP"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".forgotPassword"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Login"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
-        </activity>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
