@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -14,69 +21,79 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hola"
         tools:targetApi="31">
-
+        <activity
+            android:name=".createPostActivity"
+            android:exported="false" />
         <activity
             android:name=".Settings"
             android:exported="true"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Splashscreen"
             android:exported="true"
             android:screenOrientation="portrait">
 
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <activity
+            android:name=".Explore"
+            android:exported="true" />
         <activity
             android:name=".chatting"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"
-            android:screenOrientation="portrait">
-
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
         </activity>
-
-
         <activity
             android:name=".signUpPage"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".PersonalDetails"
+            android:exported="false" />
+        <activity
+            android:name=".SavedLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Changepassword"
+            android:exported="false" />
+        <activity
+            android:name=".passwordandActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Accounts_Center"
+            android:exported="false" />
         <activity
             android:name=".ResetPasssword"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".OTP"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".forgotPassword"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

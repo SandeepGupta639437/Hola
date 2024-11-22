@@ -8,22 +8,28 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.hola.Login
+import com.example.hola.Settings
 
-class Settings : AppCompatActivity() {
+class Accounts_Center : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_settings)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.setting)) { v, insets ->
+        setContentView(R.layout.activity_accounts_center)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.account_center_page)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val passSecure: TextView = findViewById<TextView>(R.id.passwordandSecure)
+        passSecure.setOnClickListener{
+            val intent = Intent(this@Accounts_Center, passSecure::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-        val account_Center: LinearLayout = findViewById<LinearLayout>(R.id.Account_center)
-        account_Center.setOnClickListener{
-            val intent = Intent(this@Settings, Accounts_Center::class.java)
+        val personal: TextView = findViewById<TextView>(R.id.personalText)
+        personal.setOnClickListener{
+            val intent = Intent(this@Accounts_Center, PersonalDetails::class.java)
             startActivity(intent)
             finish()
         }

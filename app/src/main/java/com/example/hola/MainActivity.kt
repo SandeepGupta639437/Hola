@@ -12,6 +12,7 @@ import com.example.api.Home
 
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -68,7 +69,12 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.homeic->replaceFragment(homepage)
                 R.id.relsics->replaceFragment(reelspage)
-                R.id.createics->replaceFragment(createpage)
+                R.id.createics->{
+                    val intent = Intent(this@MainActivity, createPostActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
+                }
                 R.id.locationsic->replaceFragment(locationpage)
                 R.id.profileic->replaceFragment(profilepage)
             }
