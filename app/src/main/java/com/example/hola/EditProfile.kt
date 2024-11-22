@@ -2,7 +2,9 @@ package com.example.hola
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,12 +14,10 @@ class EditProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-//        val backeditbutton = findViewById<ImageView>(R.id.backfromeditprofile)
-//        backeditbutton.setOnClickListener{
-//            val intent = Intent(this@EditProfile,MainActivity()::class.java)
-//            startActivity(intent)
-//        }
         setContentView(R.layout.activity_edit_profile)
+        findViewById<Button>(R.id.submitTheEditProfile).setOnClickListener{
+            Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show()
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
