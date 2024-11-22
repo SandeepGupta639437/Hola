@@ -20,7 +20,7 @@ class MyAdapter (private val context: Context, private val productArrayList: Lis
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productArrayList[position]
         holder.title.text = currentItem.title
-        // Load the image using Picasso
+
         Picasso.get().load(currentItem.thumbnail).into(holder.image)
         Picasso.get().load(currentItem.thumbnail).into(holder.Image)
     }

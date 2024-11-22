@@ -1,5 +1,7 @@
 package com.example.hola
 
+import android.R.attr.centerX
+import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +9,20 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.api.Home
+
+
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
+import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private val homepage= Home()
     private val reelspage=reelspage()
-    private val createpage=create_page()
+    private val create_page=create_page()
     private val locationpage=locationpage()
     private val profilepage=profilepage()
 
@@ -43,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             add(R.id.frame_layout2, homepage, "Home")
             add(R.id.frame_layout2, reelspage, "Reels").hide(reelspage)
-            add(R.id.frame_layout2, createpage, "Create").hide(createpage)
+            add(R.id.frame_layout2, create_page, "Create").hide(create_page)
             add(R.id.frame_layout2, locationpage, "Location").hide(locationpage)
             add(R.id.frame_layout2, profilepage, "Profile").hide(profilepage)
             commit()
@@ -58,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.homeic->replaceFragment(homepage)
                 R.id.relsics->replaceFragment(reelspage)
-                R.id.createics->replaceFragment(createpage)
+                R.id.createics->replaceFragment(create_page)
                 R.id.locationsic->replaceFragment(locationpage)
                 R.id.profileic->replaceFragment(profilepage)
             }
@@ -81,5 +91,11 @@ class MainActivity : AppCompatActivity() {
             activeFragment = fragment
         }
 
+
+
+
+
     }
 }
+
+

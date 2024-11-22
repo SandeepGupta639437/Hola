@@ -125,13 +125,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/incorrectpass"
-
-
+                android:maxWidth="@dimen/_158sdp"
                 android:text="Incorrect Password. Please try again"
                 android:textColor="@color/red"
                 android:textSize="13sp"
-
                 android:visibility="gone"
+
+
 
                 tools:ignore="MissingConstraints" />
 
