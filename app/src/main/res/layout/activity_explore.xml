@@ -30,6 +30,7 @@
         android:padding="7.5dp"/>
 
         <ImageView
+            android:id="@+id/Searchicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="10dp"

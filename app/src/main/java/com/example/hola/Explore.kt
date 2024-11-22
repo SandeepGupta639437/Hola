@@ -1,6 +1,8 @@
 package com.example.hola
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,6 +26,12 @@ class Explore : AppCompatActivity() {
 
         val tabLayout: TabLayout =  findViewById<TabLayout>(R.id.ExploretabLayout)
         val viewPager: ViewPager = findViewById<ViewPager>(R.id.ExploreViewPager)
+        val searchPageIcon : ImageView = findViewById<ImageView>(R.id.Searchicon)
+
+        searchPageIcon.setOnClickListener{
+            val intent = Intent(this@Explore , Onsearch::class.java)
+            startActivity()
+        }
 
         val adapter = ExplorePagerAdapter(supportFragmentManager)
         viewPager.adapter = adapter
