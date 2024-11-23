@@ -31,7 +31,6 @@ class Accounts_Center : AppCompatActivity() {
         personal.setOnClickListener{
             val intent = Intent(this@Accounts_Center, PersonalDetails::class.java)
             startActivity(intent)
-            finish()
         }
     }
 }

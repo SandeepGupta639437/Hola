@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.CommentAdapter
-import com.example.hola.UsePostAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

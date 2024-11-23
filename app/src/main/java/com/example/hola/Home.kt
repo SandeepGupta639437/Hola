@@ -30,7 +30,7 @@ class Home : Fragment(){
   }
   val notificationButton: ImageView = view.findViewById(R.id.notification)
   notificationButton.setOnClickListener{
-   val intent2 = Intent(requireContext() ,Notification::class.java)
+   val intent2 = Intent(requireContext(),Notification::class.java)
    startActivity(intent2)
   }
   val tabLayout: TabLayout = view.findViewById(R.id.tablayout)

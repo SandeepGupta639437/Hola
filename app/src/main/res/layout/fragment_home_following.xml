@@ -6,28 +6,65 @@
     android:layout_height="match_parent"
     android:background="#0D0D0D"
     tools:context=".HomeFollowing">
-
     <TextView
-        android:id="@+id/textfollowing"
-        android:layout_width="match_parent"
+        android:id="@+id/Live"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Following"
+        android:background="#0D0D0D"
+        android:text="Live"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:background="#0D0D0D"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        tools:listitem="@layout/eachitemfollowingtwo"
+        app:layout_constraintBottom_toTopOf="@+id/yourfollowing"
+        app:layout_constraintTop_toBottomOf="@+id/Live"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#0D0D0D"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/yourfollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Following"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollfollowing2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textfollowing" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <ScrollView
+        android:id="@+id/scrollfollowing2"
+        android:layout_width="374dp"
+        android:layout_height="358dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourfollowing"
+        app:layout_constraintVertical_bias="0.766">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#0D0D0D"
+            android:orientation="horizontal"
+            tools:listitem="@layout/eachitemfollowingone" />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFollowing : Fragment() {
     lateinit var recyclerView: RecyclerView
-    lateinit var homeFollowingAdapter: HomeFollowingAdapter
+    lateinit var homeFollowingAdapterOne: HomeFollowingAdapterOne
+    lateinit var recyclerView2: RecyclerView
+    lateinit var homeFollowingAdapterTwo: HomeFollowingAdapterTwo
 
 
     override fun onCreateView(
@@ -33,6 +35,7 @@ class HomeFollowing : Fragment() {
         }
         val view = inflater.inflate(R.layout.fragment_home_following, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView2 = view.findViewById(R.id.recyclerView2)
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://dummyjson.com/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -45,8 +48,12 @@ class HomeFollowing : Fragment() {
                 response.body()?.let { responseBody ->
                     val productList = responseBody.products
 
-                    homeFollowingAdapter = HomeFollowingAdapter(requireContext(), productList)
-                    recyclerView.adapter = homeFollowingAdapter
+                    homeFollowingAdapterTwo = HomeFollowingAdapterTwo(requireContext(), productList)
+                    recyclerView2.adapter = homeFollowingAdapterTwo
+                    recyclerView2.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,true)
+
+                    homeFollowingAdapterOne = HomeFollowingAdapterOne(requireContext(), productList)
+                    recyclerView.adapter = homeFollowingAdapterOne
                     recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 } ?: Log.d("HomeFollowing", "Response body is null")
             }

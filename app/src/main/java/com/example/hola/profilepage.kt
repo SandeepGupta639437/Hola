@@ -9,9 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.constraintlayout.helper.widget.Grid
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hola.UsePostAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class profilepage : Fragment() {
     lateinit var recyclerView: RecyclerView
-    lateinit var usepostAdapter: UsePostAdapter
+    lateinit var usepostAdapter: ProfilePageAdapter
 
 
     override fun onCreateView(
@@ -33,34 +34,41 @@ class profilepage : Fragment() {
             val intent =Intent(requireContext(),EditProfile::class.java)
             startActivity(intent)
         }
+
+        val settingButton: ImageView = view.findViewById(R.id.settingfromprofile)
+        settingButton.setOnClickListener{
+            val intent =Intent(requireContext(),Settings::class.java)
+            startActivity(intent)
+        }
+
         val shareprofileButton:Button = view.findViewById(R.id.shareProfile)
         shareprofileButton.setOnClickListener{
             val intent =Intent(requireContext(),ShareProfile::class.java)
             startActivity(intent)
         }
 
-//        recyclerView = view.findViewById(R.id.recyclerViewpost)
-//        val retrofitBuilder = Retrofit.Builder()
-//            .baseUrl("https://dummyjson.com/")
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//            .create(ApiInterface::class.java)
-//        val retrofitData = retrofitBuilder.getApiData()
-//        retrofitData.enqueue(object : Callback<ApiData?> {
-//            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
-//                // Check if the response is successful and the body is not null
-//                response.body()?.let { responseBody ->
-//                    val productList = responseBody.products
-//                    usepostAdapter = UsePostAdapter(requireContext(), productList)
-//                    recyclerView.adapter = usepostAdapter
-//                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
-//                } ?: Log.d("Home", "Response body is null")
-//            }
-//            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
-//                Log.d("Home", "onFailure: ${t.message}")
-//            }
-//        }
-//        )
+        recyclerView = view.findViewById(R.id.recyclerViewpost)
+        val retrofitBuilder = Retrofit.Builder()
+            .baseUrl("https://dummyjson.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiInterface::class.java)
+        val retrofitData = retrofitBuilder.getApiData()
+        retrofitData.enqueue(object : Callback<ApiData?> {
+            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
+                // Check if the response is successful and the body is not null
+                response.body()?.let { responseBody ->
+                    val productList = responseBody.products
+                    usepostAdapter = ProfilePageAdapter(requireContext(), productList)
+                    recyclerView.adapter = usepostAdapter
+                    recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+                } ?: Log.d("Home", "Response body is null")
+            }
+            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
+                Log.d("Home", "onFailure: ${t.message}")
+            }
+        }
+        )
         return view
     }
 }
