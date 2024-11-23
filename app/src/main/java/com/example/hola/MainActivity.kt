@@ -68,7 +68,10 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homeic->replaceFragment(homepage)
-                R.id.relsics->replaceFragment(reelspage)
+                R.id.relsics-> {
+                    val intent = Intent(this@MainActivity, Explore::class.java)
+                    startActivity(intent)
+                }
                 R.id.createics->{
                     val intent = Intent(this@MainActivity, createPostActivity::class.java)
                     startActivity(intent)
