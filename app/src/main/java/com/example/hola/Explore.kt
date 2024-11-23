@@ -30,7 +30,7 @@ class Explore : AppCompatActivity() {
 
         searchPageIcon.setOnClickListener{
             val intent = Intent(this@Explore , Onsearch::class.java)
-            startActivity()
+            startActivity(intent)
         }
 
         val adapter = ExplorePagerAdapter(supportFragmentManager)
