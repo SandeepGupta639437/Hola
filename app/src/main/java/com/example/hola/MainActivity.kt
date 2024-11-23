@@ -23,7 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
     private val homepage= Home()
     private val reelspage=reelspage()
-    private val create_page=create_page()
+    private val createpage=create_page()
     private val locationpage=locationpage()
     private val profilepage=profilepage()
 
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             add(R.id.frame_layout2, homepage, "Home")
             add(R.id.frame_layout2, reelspage, "Reels").hide(reelspage)
-            add(R.id.frame_layout2, create_page, "Create").hide(create_page)
+            add(R.id.frame_layout2, createpage, "Create").hide(createpage)
             add(R.id.frame_layout2, locationpage, "Location").hide(locationpage)
             add(R.id.frame_layout2, profilepage, "Profile").hide(profilepage)
             commit()
@@ -68,14 +68,15 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homeic->replaceFragment(homepage)
-                R.id.relsics->{
-                    val intent = Intent(this@MainActivity,Explore::class.java)
+                R.id.relsics-> {
+                    val intent = Intent(this@MainActivity, Explore::class.java)
                     startActivity(intent)
                 }
                 R.id.createics->{
-                    val intent = Intent(this@MainActivity,createPostActivity::class.java)
+                    val intent = Intent(this@MainActivity, createPostActivity::class.java)
                     startActivity(intent)
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_in_right,R.anim.slide_in_left)
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
                 }
                 R.id.locationsic->replaceFragment(locationpage)
                 R.id.profileic->replaceFragment(profilepage)

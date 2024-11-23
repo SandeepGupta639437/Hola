@@ -1,6 +1,7 @@
 package com.example.hola
 
 import Backend.CreatePostResponse
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -18,6 +19,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.hola.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,6 +52,7 @@ class createPostActivity : AppCompatActivity() {
 
     private val PICK_MEDIA_REQUEST = 1000
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_post)
@@ -84,6 +87,18 @@ class createPostActivity : AppCompatActivity() {
                 Log.e("CreatePostActivity", "No media selected")
             }
         }
+        findViewById<ImageView>(R.id.btnClose).setOnClickListener{
+
+            val intent = Intent(this@createPostActivity, MainActivity::class.java)
+            startActivity(intent)
+
+
+
+        }
+
+
+
+
     }
 
     // Open media picker (image/video)
@@ -157,7 +172,7 @@ class createPostActivity : AppCompatActivity() {
     }
 
     // Simulate the upload of the post (you would call your API here)
-     fun uploadPost(mediaPart: MultipartBody.Part, content: String, tags: String,isPublic: Boolean) {
+    fun uploadPost(mediaPart: MultipartBody.Part, content: String, tags: String,isPublic: Boolean) {
         // Make the API call to upload the post
         // You would use Retrofit or a similar library to handle this network request
 
@@ -201,11 +216,11 @@ class createPostActivity : AppCompatActivity() {
                     // Handle error response
                     Log.e("CreatePostActivity", "Error uploading post: ${response.message()}")
 
-                        Toast.makeText(
-                            this@createPostActivity,
-                            "Error uploading post: ${response.message()}",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    Toast.makeText(
+                        this@createPostActivity,
+                        "Error uploading post: ${response.message()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                 }
             } catch (e: Exception) {

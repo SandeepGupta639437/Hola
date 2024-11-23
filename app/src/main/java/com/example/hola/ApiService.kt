@@ -11,9 +11,11 @@ import Backend.*
 
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.Part
+import retrofit2.http.Query
 
 
 interface ApiService {
@@ -41,6 +43,29 @@ interface ApiService {
         @Part("isPublic") isPublic: RequestBody,
         @Part media: MultipartBody.Part?
     ): Response<CreatePostResponse>
+
+
+    @POST("/api/chat/send")
+    suspend fun sendMessage(
+        @Header("Authorization") token: String,
+        @Body messageRequest: MessageRequest
+    ): Response<MessageResponse>
+
+    @GET("/api/chat/messages")
+    suspend fun getMessages(
+        @Header("Authorization") token: String,
+        @Query("chat_id") chatId: String,
+        @Query("page") page: Int = 1,
+        @Query("size") size: Int = 20
+    ): Response<List<Message>>
+
+    @POST("api/accounts/follow/")
+    suspend fun followUser(@Body requestBody: FollowRequest): Response<Unit>
+
+    @POST("api/accounts/unfollow/")
+    suspend fun unfollowUser(@Body requestBody: FollowRequest): Response<Unit>
+
+
 
 
 
