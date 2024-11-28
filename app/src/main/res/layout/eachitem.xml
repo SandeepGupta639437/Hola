@@ -35,7 +35,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/send" />
+                    android:src="@drawable/send1" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -149,7 +149,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_height="22dp"
                     android:layout_marginStart="20dp"
-                    android:src="@drawable/send" />
+                    android:src="@drawable/send1" />
                 <TextView
                     android:id="@+id/sharetext"
                     android:layout_width="wrap_content"

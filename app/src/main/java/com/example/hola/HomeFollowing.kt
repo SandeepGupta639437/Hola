@@ -10,8 +10,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hola.CommentPage
-import com.example.hola.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFollowing : Fragment() {
     lateinit var recyclerView: RecyclerView
-    lateinit var homeFollowingAdapter: HomeFollowingAdapter
+    lateinit var homeFollowingAdapterOne: HomeFollowingAdapterOne
+    lateinit var recyclerView2: RecyclerView
+    lateinit var homeFollowingAdapterTwo: HomeFollowingAdapterTwo
 
 
     override fun onCreateView(
@@ -30,25 +30,30 @@ class HomeFollowing : Fragment() {
     ): View? {
         val imageview=view?.findViewById<ImageView>(R.id.commentic)
         imageview?.setOnClickListener{
-            val intent= Intent(requireContext(), CommentPage::class.java)
+            val intent= Intent(requireContext(), CommentsPage::class.java)
             startActivity(intent)
         }
         val view = inflater.inflate(R.layout.fragment_home_following, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView2 = view.findViewById(R.id.recyclerView2)
         val retrofitBuilder = Retrofit.Builder()
             .baseUrl("https://dummyjson.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
         val retrofitData = retrofitBuilder.getApiData()
-        val value = retrofitData.enqueue(object : Callback<ApiData?> {
+        retrofitData.enqueue(object : Callback<ApiData?> {
             override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
                 // Check if the response is successful and the body is not null
                 response.body()?.let { responseBody ->
                     val productList = responseBody.products
 
-                    homeFollowingAdapter = HomeFollowingAdapter(requireContext(), productList)
-                    recyclerView.adapter = homeFollowingAdapter
+                    homeFollowingAdapterTwo = HomeFollowingAdapterTwo(requireContext(), productList)
+                    recyclerView2.adapter = homeFollowingAdapterTwo
+                    recyclerView2.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,true)
+
+                    homeFollowingAdapterOne = HomeFollowingAdapterOne(requireContext(), productList)
+                    recyclerView.adapter = homeFollowingAdapterOne
                     recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 } ?: Log.d("HomeFollowing", "Response body is null")
             }

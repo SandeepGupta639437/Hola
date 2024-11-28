@@ -7,16 +7,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hola.Product
-import com.example.hola.R
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class HomeFollowingAdapter(private val context: Context, private val productArrayList: List<Product>) :
-    RecyclerView.Adapter<HomeFollowingAdapter.MyViewHolder>() {
+class HomeFollowingAdapterOne(private val context: Context, private val productArrayList: List<Product>) :
+    RecyclerView.Adapter<HomeFollowingAdapterOne.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.eachitemall, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.eachitemfollowingone, parent, false)
         return MyViewHolder(itemView)
     }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
