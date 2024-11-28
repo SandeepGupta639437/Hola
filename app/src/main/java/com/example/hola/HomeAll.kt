@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,40 +21,38 @@ class HomeAll : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var homeAllAdapter: HomeAllAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val imageview=view?.findViewById<ImageView>(R.id.commentic)
-        imageview?.setOnClickListener{
-            val intent= Intent(requireContext(),CommentsPage::class.java)
-            startActivity(intent)
-        }
         val view = inflater.inflate(R.layout.fragment_home_all, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
+
+        // Setup RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Fetch Data from API
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("https://dummyjson.com/")
+            .baseUrl("http://hola-project.onrender.com/api/accounts/homepage/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
-        val retrofitData = retrofitBuilder.getApiData()
-        retrofitData.enqueue(object : Callback<ApiData?> {
-            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
-                // Check if the response is successful and the body is not null
-                response.body()?.let { responseBody ->
-                    val productList = responseBody.products
 
+        val retrofitData = retrofitBuilder.getHomeData()
+        retrofitData.enqueue(object : Callback<HomePost?> {
+            override fun onResponse(call: Call<HomePost?>, response: Response<HomePost?>) {
+                response.body()?.let { responseBody ->
+                    val productList = responseBody.posts
                     homeAllAdapter = HomeAllAdapter(requireContext(), productList)
                     recyclerView.adapter = homeAllAdapter
-                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 } ?: Log.d("Home", "Response body is null")
             }
-            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
+
+            override fun onFailure(call: Call<HomePost?>, t: Throwable) {
                 Log.d("Home", "onFailure: ${t.message}")
             }
-        }
-        )
-        return view // Ensure only one view is returned
+        })
+
+        return view
     }
 }

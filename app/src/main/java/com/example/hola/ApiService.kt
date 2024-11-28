@@ -43,6 +43,14 @@ interface ApiService {
         @Part("isPublic") isPublic: RequestBody,
         @Part media: MultipartBody.Part?
     ): Response<CreatePostResponse>
+    @POST("api/accounts/homepage/")
+    suspend fun HomePage(
+        @Header("Authorization") token: String,
+        @Part("content") content: RequestBody,
+        @Part("tags") tags: RequestBody,
+        @Part("isPublic") isPublic: RequestBody,
+        @Part media: MultipartBody.Part?
+    ): Response<CreatePostResponse>
 
 
     @POST("/api/chat/send")

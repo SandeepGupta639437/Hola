@@ -9,9 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import androidx.constraintlayout.helper.widget.Grid
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class profilepage : Fragment() {
     lateinit var recyclerView: RecyclerView
-    lateinit var usepostAdapter: ProfilePageAdapter
+//    lateinit var usepostAdapter: ProfilePageAdapter
 
 
     override fun onCreateView(
@@ -29,42 +27,40 @@ class profilepage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profilepage, container, false)
-        val editprofileButton:Button = view.findViewById(R.id.editProfile)
-        editprofileButton.setOnClickListener{
+        val editProfileButton:Button = view.findViewById(R.id.editProfile)
+        editProfileButton.setOnClickListener{
             val intent =Intent(requireContext(),EditProfile::class.java)
             startActivity(intent)
         }
-
         val settingButton: ImageView = view.findViewById(R.id.settingfromprofile)
         settingButton.setOnClickListener{
             val intent =Intent(requireContext(),Settings::class.java)
             startActivity(intent)
         }
-
-        val shareprofileButton:Button = view.findViewById(R.id.shareProfile)
-        shareprofileButton.setOnClickListener{
+        val shareProfileButton:Button = view.findViewById(R.id.shareProfile)
+        shareProfileButton.setOnClickListener{
             val intent =Intent(requireContext(),ShareProfile::class.java)
             startActivity(intent)
         }
 
         recyclerView = view.findViewById(R.id.recyclerViewpost)
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("https://dummyjson.com/")
+            .baseUrl("https://hola-project.onrender.com/api/accounts/profile/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
-        val retrofitData = retrofitBuilder.getApiData()
-        retrofitData.enqueue(object : Callback<ApiData?> {
-            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
+        val retrofitData = retrofitBuilder.getUserProfileData()
+        retrofitData.enqueue(object : Callback<UserProfileApi?> {
+            override fun onResponse(call: Call<UserProfileApi?>, response: Response<UserProfileApi?>) {
                 // Check if the response is successful and the body is not null
                 response.body()?.let { responseBody ->
-                    val productList = responseBody.products
-                    usepostAdapter = ProfilePageAdapter(requireContext(), productList)
-                    recyclerView.adapter = usepostAdapter
-                    recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+                    val productList = responseBody.profile_photo
+//                    usepostAdapter = ProfilePageAdapter(requireContext(), productList)
+//                    recyclerView.adapter = usepostAdapter
+//                    recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
                 } ?: Log.d("Home", "Response body is null")
             }
-            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
+            override fun onFailure(call: Call<UserProfileApi?>, t: Throwable) {
                 Log.d("Home", "onFailure: ${t.message}")
             }
         }

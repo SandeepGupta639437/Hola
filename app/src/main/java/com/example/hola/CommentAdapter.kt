@@ -20,7 +20,7 @@ class CommentAdapter(val context: Context, private val productArrayList: List<Pr
     }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productArrayList[position]
-        holder.title.text = currentItem.title
+        holder.title.text = currentItem.title.toString()
         // Load the image using Picasso
         Picasso.get().load(currentItem.thumbnail).into(holder.image)
     }

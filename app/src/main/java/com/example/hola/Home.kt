@@ -16,6 +16,7 @@ import com.example.hola.ViewPagerAdapter
 import com.example.hola.chatting
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.*
 
 class Home : Fragment(){
  override fun onCreateView(
@@ -48,10 +49,8 @@ class Home : Fragment(){
     else -> "Tab $position"
    }
   }.attach()
-
   return view
  }
 
-
-
 }
+

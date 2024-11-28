@@ -28,7 +28,7 @@ class CommentsPage : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerCommentView)
 
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("https://dummyjson.com/")
+            .baseUrl("http://hola-project.onrender.com/api/accounts/homepage/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
