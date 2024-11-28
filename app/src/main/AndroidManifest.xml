@@ -19,8 +19,9 @@
         android:theme="@style/Theme.Hola"
         tools:targetApi="31">
         <activity
-            android:name=".UserListActivity"
-            android:exported="false" />
+            android:name=".Onsearch"
+            android:exported="true"/>
+
         <activity
             android:name=".createPostActivity"
             android:exported="false" />
@@ -64,16 +65,26 @@
             android:exported="false" />
         <activity
             android:name=".SavedLogin"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Changepassword"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".passwordandActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Accounts_Center"
-            android:exported="false" />
+            android:exported="true" />
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+
+
         <activity
             android:name=".ResetPasssword"
             android:exported="true"

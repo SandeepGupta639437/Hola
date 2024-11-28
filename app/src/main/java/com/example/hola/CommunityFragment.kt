@@ -21,19 +21,19 @@ class CommunityFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerViewCommunity)
 
         val communities = listOf(
-            Community(R.drawable.lock, "Tech Enthusiasts","24M Followers"),
-            Community(R.drawable.lock, "Gaming Gurus","2M Followers"),
-            Community(R.drawable.lock, "Art Lovers","240M Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
-            Community(R.drawable.lock, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Tech Enthusiasts","24M Followers"),
+            Community(R.drawable.image2, "Gaming Gurus","2M Followers"),
+            Community(R.drawable.image2, "Art Lovers","240M Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
+            Community(R.drawable.image2, "Bookworms","240K Followers"),
 
         )
 

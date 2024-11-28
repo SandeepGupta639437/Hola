@@ -22,7 +22,7 @@ class Accounts_Center : AppCompatActivity() {
         }
         val passSecure: TextView = findViewById<TextView>(R.id.passwordandSecure)
         passSecure.setOnClickListener{
-            val intent = Intent(this@Accounts_Center, passSecure::class.java)
+            val intent = Intent(this@Accounts_Center, passwordandActivity::class.java)
             startActivity(intent)
             finish()
         }
