@@ -1,6 +1,6 @@
 package com.example.hola
 
-data class Post(
+data class HomePageResponse(
     val comments_count: Int,
     val content: String,
     val created_at: String,

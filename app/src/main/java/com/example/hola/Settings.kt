@@ -21,7 +21,7 @@ class Settings : AppCompatActivity() {
             insets
         }
 
-        val account_Center = findViewById<TextView>(R.id.Account_center)
+        val account_Center = findViewById<LinearLayout>(R.id.Account_center)
         account_Center.setOnClickListener{
             val intent = Intent(this@Settings, Accounts_Center()::class.java)
             startActivity(intent)

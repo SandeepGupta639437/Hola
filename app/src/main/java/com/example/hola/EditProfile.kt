@@ -23,5 +23,10 @@ class EditProfile : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val backButton = findViewById<ImageView>(R.id.backfromeditprofile)
+        backButton.setOnClickListener{
+            val intent = Intent(this@EditProfile,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

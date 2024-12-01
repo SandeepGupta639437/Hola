@@ -25,34 +25,36 @@ class HomeAll : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val imageview=view?.findViewById<ImageView>(R.id.commentic)
+        imageview?.setOnClickListener{
+            val intent= Intent(requireContext(), CommentsPage::class.java)
+            startActivity(intent)
+        }
         val view = inflater.inflate(R.layout.fragment_home_all, container, false)
-        recyclerView = view.findViewById(R.id.recyclerView)
-
-        // Setup RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Fetch Data from API
+        recyclerView = view.findViewById(R.id.recyclerView2)
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("http://hola-project.onrender.com/api/accounts/homepage/")
+            .baseUrl("https://dummyjson.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
-
-        val retrofitData = retrofitBuilder.getHomeData()
-        retrofitData.enqueue(object : Callback<HomePost?> {
-            override fun onResponse(call: Call<HomePost?>, response: Response<HomePost?>) {
+        val retrofitData = retrofitBuilder.getApiData()
+        retrofitData.enqueue(object : Callback<ApiData?> {
+            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
+                // Check if the response is successful and the body is not null
                 response.body()?.let { responseBody ->
-                    val productList = responseBody.posts
+                    val productList = responseBody.products
+
+
                     homeAllAdapter = HomeAllAdapter(requireContext(), productList)
                     recyclerView.adapter = homeAllAdapter
-                } ?: Log.d("Home", "Response body is null")
+                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                } ?: Log.d("HomeFollowing", "Response body is null")
             }
-
-            override fun onFailure(call: Call<HomePost?>, t: Throwable) {
-                Log.d("Home", "onFailure: ${t.message}")
+            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
+                Log.d("HomeFollowing", "onFailure: ${t.message}")
             }
-        })
-
-        return view
+        }
+        )
+        return view //
     }
 }

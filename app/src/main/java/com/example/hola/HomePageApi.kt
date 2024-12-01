@@ -1,7 +1,7 @@
 package com.example.hola
 
-data class HomePost(
+data class HomePageApi(
     val left_bar: List<LeftBar>,
-    val posts: List<Post>,
+    val posts: List<HomePageResponse>,
     val right_bar: List<RightBar>
 )

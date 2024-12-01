@@ -20,14 +20,13 @@ class Accounts_Center : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val passSecure: TextView = findViewById<TextView>(R.id.passwordandSecure)
+        val passSecure = findViewById<TextView>(R.id.passwordandSecure)
         passSecure.setOnClickListener{
-            val intent = Intent(this@Accounts_Center, passSecure::class.java)
+            val intent = Intent(this@Accounts_Center, passwordandActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
-        val personal: TextView = findViewById<TextView>(R.id.personalText)
+        val personal= findViewById<TextView>(R.id.personalText)
         personal.setOnClickListener{
             val intent = Intent(this@Accounts_Center, PersonalDetails::class.java)
             startActivity(intent)

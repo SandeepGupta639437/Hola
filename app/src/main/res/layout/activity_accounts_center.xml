@@ -88,11 +88,11 @@
             android:textColor="@color/white"/>
 
         <TextView
+            android:id="@+id/passwordandSecure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password and security"
             android:textColor="@color/white"
-            android:id="@+id/passwordandSecure"
             android:textStyle="bold"
             android:drawableStart="@drawable/lock"
             android:drawableEnd="@drawable/arrowright"
@@ -102,11 +102,11 @@
             android:drawablePadding="15dp"/>
 
         <TextView
+            android:id="@+id/personalText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Personal details"
             android:textColor="@color/white"
-            android:id="@+id/personalText"
             android:textStyle="bold"
             android:drawableStart="@drawable/profile"
             android:drawableEnd="@drawable/arrowright"
