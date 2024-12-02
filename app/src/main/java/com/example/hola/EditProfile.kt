@@ -27,6 +27,7 @@ class EditProfile : AppCompatActivity() {
         backButton.setOnClickListener{
             val intent = Intent(this@EditProfile,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

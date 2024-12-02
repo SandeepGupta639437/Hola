@@ -22,6 +22,7 @@ class ShareProfile : AppCompatActivity() {
         backButton.setOnClickListener{
             val intent = Intent(this@ShareProfile,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
