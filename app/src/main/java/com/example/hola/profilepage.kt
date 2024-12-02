@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class profilepage : Fragment() {
     lateinit var recyclerView: RecyclerView
-//    lateinit var usepostAdapter: ProfilePageAdapter
+    lateinit var usepostAdapter: ProfilePageAdapter
 
 
     override fun onCreateView(
@@ -45,22 +45,22 @@ class profilepage : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerViewpost)
         val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("https://hola-project.onrender.com/api/accounts/profile/")
+            .baseUrl("https://dummyjson.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
-        val retrofitData = retrofitBuilder.getUserProfileData()
-        retrofitData.enqueue(object : Callback<UserProfileApi?> {
-            override fun onResponse(call: Call<UserProfileApi?>, response: Response<UserProfileApi?>) {
+        val retrofitData = retrofitBuilder.getApiData()
+        retrofitData.enqueue(object : Callback<ApiData?> {
+            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
                 // Check if the response is successful and the body is not null
                 response.body()?.let { responseBody ->
-                    val productList = responseBody.profile_photo
-//                    usepostAdapter = ProfilePageAdapter(requireContext(), productList)
-//                    recyclerView.adapter = usepostAdapter
-//                    recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+                    val productList = responseBody.products
+                    usepostAdapter = ProfilePageAdapter(requireContext(), productList)
+                    recyclerView.adapter = usepostAdapter
+                    recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
                 } ?: Log.d("Home", "Response body is null")
             }
-            override fun onFailure(call: Call<UserProfileApi?>, t: Throwable) {
+            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
                 Log.d("Home", "onFailure: ${t.message}")
             }
         }

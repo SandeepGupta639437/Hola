@@ -108,7 +108,7 @@ class ResetPasssword : AppCompatActivity() {
                             startActivity(intent)
 
 
-                            finish() // Close the activity or navigate to the login screen
+                            // Close the activity or navigate to the login screen
                         } else {
                             Toast.makeText(this@ResetPasssword, "Error: $message", Toast.LENGTH_SHORT).show()
                         }

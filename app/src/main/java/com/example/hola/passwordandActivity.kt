@@ -23,14 +23,12 @@ class passwordandActivity : AppCompatActivity() {
         ChangeYourPassword.setOnClickListener{
             val intent = Intent(this@passwordandActivity, Changepassword::class.java)
             startActivity(intent)
-            finish()
         }
 
         val SavedDataLogin: TextView = findViewById<TextView>(R.id.LoginSaved)
         SavedDataLogin.setOnClickListener{
             val intent = Intent(this@passwordandActivity, SavedLogin::class.java)
             startActivity(intent)
-            finish()
         }
     }
 }

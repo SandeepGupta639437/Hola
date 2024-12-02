@@ -7,15 +7,14 @@
     android:layout_height="match_parent"
     android:background="#0D0D0D"
     tools:context=".profilepage">
-
     <ImageView
         android:id="@+id/settingfromprofile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="27dp"
+        android:layout_height="33dp"
         android:src="@drawable/baseline_settings_24"
         app:layout_constraintBottom_toTopOf="@id/profile1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +22,7 @@
             android:id="@+id/profile1"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/delivery"
+            android:src="@drawable/image1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settingfromprofile"
@@ -45,7 +44,7 @@
                 android:layout_width="70dp"
                 android:layout_height="61dp"
                 android:layout_gravity="center"
-                android:src="@drawable/delivery" />
+                android:src="@drawable/profileimage" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -205,6 +204,7 @@
                 android:text="Share Profile"
                 android:backgroundTint="#0D0D0D"/>
         </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewpost"
             android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package com.example.hola
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
@@ -38,7 +39,11 @@ class chatting : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        val backbutton = findViewById<ImageView>(R.id.backChatting)
+        backbutton.setOnClickListener{
+            val intent = Intent(this@chatting,MainActivity()::class.java)
+            startActivity(intent)
+        }
 
         val rootView = findViewById<View>(R.id.main)
         rootView.viewTreeObserver.addOnGlobalLayoutListener {
