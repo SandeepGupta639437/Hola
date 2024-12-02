@@ -111,6 +111,7 @@
                 android:gravity="top"
                 android:hint="Add caption..."
                 android:inputType="textMultiLine"
+                android:textColor="@color/white"
                 android:padding="8dp"
                 android:textColorHint="@color/white" />
 
@@ -120,6 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 android:background="@drawable/edittext_background"
                 android:hint="Add hashtags #..."
                 android:inputType="textMultiLine"
@@ -141,12 +143,15 @@
                     android:textColor="@color/light_grey"
                     android:textSize="16sp" />
 
-                <Switch
+                <CheckBox
                     android:id="@+id/switchVisibility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Public"
+                    android:checked="true"
+                    android:shadowColor="@color/white"
+
                     android:textColor="@color/light_grey" />
             </LinearLayout>
 

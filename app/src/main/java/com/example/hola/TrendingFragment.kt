@@ -31,9 +31,9 @@ class TrendingFragment : Fragment() {
     private fun fetchImages() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val images = RetrofitInstance.api.getTrendingImages(unsplashApiKey)
+               // val images = RetrofitInstance.api.getTrendingImages(unsplashApiKey)
                 withContext(Dispatchers.Main) {
-                    recyclerView.adapter = TrendingAdapter(images)
+               //     recyclerView.adapter = TrendingAdapter(images)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

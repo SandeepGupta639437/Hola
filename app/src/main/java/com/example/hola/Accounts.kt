@@ -21,19 +21,19 @@ class Accounts : Fragment() {
         recyclerView = view.findViewById(R.id.accountrecyclerViewCommunity)
 
         val communities = listOf(
-            AccountsData(R.drawable.image1, "Tech Enthusiasts"),
-            AccountsData(R.drawable.image1, "Gaming Gurus"),
-            AccountsData(R.drawable.image1, "Art Lovers"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
-            AccountsData(R.drawable.image1, "Bookworms"),
+            AccountsData(R.drawable.image3, "Tech Enthusiasts"),
+            AccountsData(R.drawable.image3, "Gaming Gurus"),
+            AccountsData(R.drawable.image3, "Art Lovers"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
+            AccountsData(R.drawable.image3, "Bookworms"),
 
             )
 
