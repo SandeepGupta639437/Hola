@@ -60,25 +60,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shab_pt"
+                    android:text="@string/shab_pt"
                     android:textColor="@color/white"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/comment"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:text="Shab_pt"
+                    android:text="@string/shab_pt"
                     android:textColor="@color/white"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reply"
+                    android:text="@string/reply"
                     android:textColor="#8C5BE6"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
 
@@ -104,10 +104,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="10dp"
+                    android:text="@string/_3"
+                    android:textSize="10sp"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
-                    android:text="3" />
+                    />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -120,7 +121,7 @@
             android:layout_marginBottom="5dp"
             android:textColor="@color/white"
             android:textSize="17sp"
-            android:text="There are many people but why always me hey got please give me some happiness">
+            android:text="@string/there_are_many_people_but_why_always_me_hey_got_please_give_me_some_happiness">
         </TextView>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
