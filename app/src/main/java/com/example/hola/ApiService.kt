@@ -35,12 +35,15 @@ interface ApiService {
 
 
 
+    @Multipart
     @POST("/api/posts/create/")
     suspend fun createPost(
         @Header("Authorization") token: String,
-       @Body createPostRequest: CreatePostRequest
+        @Part("content") content: String,
+        @Part("isPublic") isPublic: Boolean,
+        @Part("tags") tags: String,
+        @Part media: MultipartBody.Part? // Optional media
     ): Response<CreatePostResponse>
-
 
 
     @POST("api/accounts/homepage/")
