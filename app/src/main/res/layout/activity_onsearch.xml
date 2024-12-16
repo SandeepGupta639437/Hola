@@ -11,45 +11,44 @@
     android:orientation="vertical"
     tools:context=".Explore">
 
+    <!-- Search Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="15dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grey"
-        android:drawableStart="@drawable/search"
-        android:drawablePadding="15dp"
-        android:layout_weight="1"
-        android:hint="Search"
-        android:textColorHint="@color/white"
-        android:textSize="15sp"
-        android:padding="7.5dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:drawableStart="@drawable/search"
+            android:drawablePadding="15dp"
+            android:layout_weight="1"
+            android:hint="flowers"
+            android:textColorHint="@color/light_grey"
+            android:textSize="15sp"
+            android:padding="7.5dp"/>
 
         <ImageView
-            android:id="@+id/Searchicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/search"
             android:background="@color/grey"
             android:layout_gravity="center"/>
-
-
     </LinearLayout>
 
+    <!-- TabLayout -->
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/ExploretabLayout"
+        android:id="@+id/OnSearchtabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/ExploreViewPager"
+    <!-- ViewPager2 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/OnSearchViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 
 </LinearLayout>

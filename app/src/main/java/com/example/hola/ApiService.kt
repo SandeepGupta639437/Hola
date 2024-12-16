@@ -34,15 +34,18 @@ interface ApiService {
     suspend fun resetPassword(@Body requestBody: ResetPasswordRequest): Response<ResetPasswordResponse>
 
 
+
     @Multipart
     @POST("/api/posts/create/")
     suspend fun createPost(
         @Header("Authorization") token: String,
-        @Part("content") content: RequestBody,
-        @Part("tags") tags: RequestBody,
-        @Part("isPublic") isPublic: RequestBody,
-        @Part media: MultipartBody.Part?
+        @Part("content") content: String,
+        @Part("isPublic") isPublic: Boolean,
+        @Part("tags") tags: String,
+        @Part media: MultipartBody.Part? // Optional media
     ): Response<CreatePostResponse>
+
+
     @POST("api/accounts/homepage/")
     suspend fun HomePage(
         @Header("Authorization") token: String,

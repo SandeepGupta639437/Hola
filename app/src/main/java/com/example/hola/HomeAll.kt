@@ -25,8 +25,7 @@ class HomeAll : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val accessToken = sharedPreferences.getString("access_token")?:""
+
 
         val imageview=view?.findViewById<ImageView>(R.id.commentic)
         imageview?.setOnClickListener{
@@ -40,12 +39,12 @@ class HomeAll : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
-        val retrofitData = retrofitBuilder.getHomeAll()
-        retrofitData.enqueue(object : Callback<HomePageApi?> {
-            override fun onResponse(call: Call<HomePageApi?>, response: Response<HomePageApi?>) {
+        val retrofitData = retrofitBuilder.getApiData()
+        retrofitData.enqueue(object : Callback<ApiData?> {
+            override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
                 // Check if the response is successful and the body is not null
                 response.body()?.let { responseBody ->
-                    val productList = responseBody.posts
+                    val productList = responseBody.products
 
 
                     homeAllAdapter = HomeAllAdapter(requireContext(), productList)
@@ -53,7 +52,7 @@ class HomeAll : Fragment() {
                     recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 } ?: Log.d("HomeFollowing", "Response body is null")
             }
-            override fun onFailure(call: Call<HomePageApi?>, t: Throwable) {
+            override fun onFailure(call: Call<ApiData?>, t: Throwable) {
                 Log.d("HomeFollowing", "onFailure: ${t.message}")
             }
         }

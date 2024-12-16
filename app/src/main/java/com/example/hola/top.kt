@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TrendingFragment : Fragment() {
+class top : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private val unsplashApiKey = "Be6lTicT7l_aHz1NQ_XqvAGHT6rj6KT2TLMQi1KE748"
@@ -21,7 +21,7 @@ class TrendingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_trending, container, false)
+        val view = inflater.inflate(R.layout.fragment_top, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(context, 2) // 2 columns
         fetchImages()
@@ -41,4 +41,3 @@ class TrendingFragment : Fragment() {
         }
     }
 }
-

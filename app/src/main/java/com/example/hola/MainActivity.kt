@@ -2,6 +2,7 @@ package com.example.hola
 
 import android.R.attr.centerX
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private val homepage= Home()
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -72,16 +75,18 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this@MainActivity, Explore::class.java)
                     startActivity(intent)
                 }
-                R.id.createics->{
-                    val intent = Intent(this@MainActivity, createPostActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
-                }
                 R.id.locationsic->replaceFragment(locationpage)
                 R.id.profileic->replaceFragment(profilepage)
             }
             true
+        }
+
+        findViewById<FloatingActionButton>(R.id.createics).setOnClickListener{
+            val intent = Intent(this@MainActivity, createPostActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
         }
 
     }

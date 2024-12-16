@@ -10,20 +10,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class HomeAllAdapter(private val context: Context, private val productArrayList: List<HomePageResponse>) :
+class HomeAllAdapter(private val context: Context, private val productArrayList: List<Product>) :
     RecyclerView.Adapter<HomeAllAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.eachitemfollowingone, parent, false)
         return MyViewHolder(itemView)
     }
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productArrayList[position]
-        holder.title.text = currentItem.created_at
+        holder.title.text = currentItem.title
         // Load the image using Picasso
-        Picasso.get().load(currentItem.media).into(holder.image)
-        Picasso.get().load(currentItem.media).into(holder.Image)
+        Picasso.get().load(currentItem.thumbnail).into(holder.image)
+        Picasso.get().load(currentItem.thumbnail).into(holder.Image)
     }
     override fun getItemCount(): Int {
         return productArrayList.size
