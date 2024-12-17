@@ -2,4 +2,20 @@
     <string name="app_name">HOLA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_319">319</string>
+    <string name="post">Post</string>
+    <string name="_2_1m">2.1M</string>
+    <string name="followers">Followers</string>
+    <string name="_230">230</string>
+    <string name="folllowing">Folllowing</string>
+    <string name="message">Message</string>
+    <string name="following">Following</string>
+    <string name="share_profile">Share Profile</string>
+    <string name="richard_wright">Richard Wright</string>
+    <string name="aliana01">aliana01</string>
+    <string name="shab_pt">Shab_pt</string>
+    <string name="reply">Reply</string>
+    <string name="_3">3</string>
+    <string name="there_are_many_people_but_why_always_me_hey_got_please_give_me_some_happiness">There are many people but why always me hey got please give me some happiness</string>
+    <string name="google_map_api_key">AIzaSyCCjNfhtJcL0xy1XhHQwH6DnZteokEyfkI</string>
 </resources>

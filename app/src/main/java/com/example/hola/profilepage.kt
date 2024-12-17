@@ -42,6 +42,11 @@ class profilepage : Fragment() {
             val intent =Intent(requireContext(),ShareProfile::class.java)
             startActivity(intent)
         }
+        val profileshare:ImageView = view.findViewById(R.id.profileqrimage)
+        profileshare.setOnClickListener{
+            val intent =Intent(requireContext(),ShareProfile::class.java)
+            startActivity(intent)
+        }
 
         recyclerView = view.findViewById(R.id.recyclerViewpost)
         val retrofitBuilder = Retrofit.Builder()

@@ -6,11 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface ApiInterface {
-    interface HomePageApi {
-        @GET("home")
-        suspend fun getHomePageDetails(): Response<List<HomePageResponse>>
-    }
-
+//    @GET("post")
+//    @Header("Authorization") token: String,
+//    fun getHomeAll(): Call<HomePageApi>
 
     @GET("api/accounts/profile/")
     fun getUserProfileData(): Call<UserProfileApi>

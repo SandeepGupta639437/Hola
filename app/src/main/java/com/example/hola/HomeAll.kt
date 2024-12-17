@@ -1,5 +1,6 @@
 package com.example.hola
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +25,8 @@ class HomeAll : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         val imageview=view?.findViewById<ImageView>(R.id.commentic)
         imageview?.setOnClickListener{
             val intent= Intent(requireContext(), CommentsPage::class.java)

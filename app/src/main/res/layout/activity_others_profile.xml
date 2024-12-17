@@ -88,17 +88,17 @@
                 android:id="@+id/postcount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="319"
+                android:text="@string/_319"
                 android:layout_gravity="center_horizontal"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Post"
-                android:textSize="15dp"
+                android:text="@string/post"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -119,9 +119,9 @@
                 android:id="@+id/followercount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.1M"
+                android:text="@string/_2_1m"
                 android:layout_gravity="center_horizontal"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
@@ -129,9 +129,9 @@
                 android:id="@+id/follower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Followers"
+                android:text="@string/followers"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -152,16 +152,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="230"
-                android:textSize="15dp"
+                android:text="@string/_230"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Folllowing"
-                android:textSize="15dp"
+                android:text="@string/folllowing"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -180,7 +180,7 @@
             android:id="@+id/editProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Message"
+            android:text="@string/message"
             android:background="@drawable/card_border"
             android:textColor="@color/white"
             android:layout_marginEnd="50dp"
@@ -191,7 +191,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:background="@drawable/card_border"
-            android:text="Following"
+            android:text="@string/following"
             android:backgroundTint="#0D0D0D"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

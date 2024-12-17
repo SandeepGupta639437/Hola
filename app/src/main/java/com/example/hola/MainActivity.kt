@@ -76,7 +76,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
 
-                R.id.locationsic->replaceFragment(locationpage)
+                R.id.locationsic-> {
+                    val intent = Intent(this@MainActivity, Location::class.java)
+                    startActivity(intent)
+                }
                 R.id.profileic->replaceFragment(profilepage)
             }
             true
