@@ -24,7 +24,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"
-        android:layout_width="455dp"
+        android:layout_width="match_parent"
         android:layout_height="140dp"
         android:background="#0D0D0D"
         app:layout_constraintBottom_toTopOf="@+id/yourfollowing"
@@ -51,7 +51,7 @@
 
     <ScrollView
         android:id="@+id/scrollfollowing2"
-        android:layout_width="377dp"
+        android:layout_width="match_parent"
         android:layout_height="382dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
