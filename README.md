@@ -4,7 +4,7 @@
 
 ## 📌 Introduction
 
-Hola is a modern social media app designed to provide an engaging user experience with a sleek interface and essential features similar to Instagram. Built using Jetpack Compose for the UI and integrated with a backend API, it offers a seamless and interactive platform for users to share and explore content.
+Hola is a modern social media app designed to provide an engaging user experience with a sleek interface and essential features similar to Instagram. Built using XML for the UI and integrated with a backend API, it offers a seamless and interactive platform for users to share and explore content.
 
 ## ✨ Features
 
@@ -16,7 +16,7 @@ Create Page: Upload images, write captions, and share posts.
 
 Profile Page: Manage user details, settings, and personal posts.
 
-Location Feature: Add and view location-based content.
+Location Feature: view location-based content.
 
 Chat Integration: Real-time messaging in the home section.
 
