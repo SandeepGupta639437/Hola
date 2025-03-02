@@ -82,7 +82,7 @@ State Management: ViewModel + LiveData / Flow
 
 Clone the repository:
 
-git clone https://github.com/your-username/hola-app.git
+git clone https://github.com/SandeepGupta639437/Hola.git
 
 Open the project in Android Studio.
 
@@ -92,7 +92,7 @@ Run the app on an emulator or physical device.
 
 ## 📬 Contact
 
-For any queries, reach out to me at [your email] or connect on [your social media].
+For any queries, reach out to me at sandeepguptag18@gmail.com or connect on https://www.linkedin.com/in/sandeep-gupta-4399062a2/.
 
 Enjoy using Hola! 🎉
 
