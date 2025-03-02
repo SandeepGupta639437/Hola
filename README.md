@@ -1,3 +1,40 @@
+# Hola - A Social Media App
+
+
+
+## 📌 Introduction
+
+Hola is a modern social media app designed to provide an engaging user experience with a sleek interface and essential features similar to Instagram. Built using Jetpack Compose for the UI and integrated with a backend API, it offers a seamless and interactive platform for users to share and explore content.
+
+## ✨ Features
+
+Home Page: View posts in "All" and "Following" sections.
+
+Explore Page: Discover trending content and new users.
+
+Create Page: Upload images, write captions, and share posts.
+
+Profile Page: Manage user details, settings, and personal posts.
+
+Location Feature: Add and view location-based content.
+
+Chat Integration: Real-time messaging in the home section.
+
+User Authentication: Secure login and signup functionality.
+
+## 🛠️ Tech Stack
+
+Frontend: Jetpack Compose (Kotlin)
+
+Backend Intergration: API Integration (REST API)
+
+Database: Firebase / Custom Backend
+
+Authentication: Firebase Auth / OAuth
+
+State Management: ViewModel + LiveData / Flow
+
+## 📸 Screenshots
 
 <div style="display: inline-block;  display: flex; justify-content: space-around;">
 
@@ -40,4 +77,36 @@
 
 <img src="https://github.com/user-attachments/assets/daeabcd3-007d-4f9d-99af-0273560d178f" alt="News App Screenshot 1" width="150" hspace="20" >
 </div>
+
+## 🚀 Installation
+
+Clone the repository:
+
+git clone https://github.com/your-username/hola-app.git
+
+Open the project in Android Studio.
+
+Sync Gradle and ensure all dependencies are installed.
+
+Run the app on an emulator or physical device.
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+## 📬 Contact
+
+For any queries, reach out to me at [your email] or connect on [your social media].
+
+Enjoy using Hola! 🎉
+
+
+
+
+
+
+
+
+
+
 
