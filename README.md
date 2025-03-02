@@ -90,10 +90,6 @@ Sync Gradle and ensure all dependencies are installed.
 
 Run the app on an emulator or physical device.
 
-## 📄 License
-
-This project is open-source and available under the MIT License.
-
 ## 📬 Contact
 
 For any queries, reach out to me at [your email] or connect on [your social media].
